@@ -1,17 +1,39 @@
-# Assessment / matching contract v1
+# КОД.МЭТЧ – контракт тестирования и подбора версии 1
 
-Pure stdlib domain; no network, environment reads, eval or arbitrary code execution.
+Доменный модуль использует стандартную библиотеку Python. Формирование заданий, оценка и подбор выполняются локально, без сети и исполнения произвольного кода участника.
 
-`build_form(specialization, grade, seed) -> dict`: canonical specialization `backend_python`, `frontend_ts`, `data_sql`; grade `junior`, `middle`. Seed is bounded int or string. Response contains `version`, `form_id`, `specialization`, `grade`, `blueprint`, `rubric`, `questions` and server-only `_oracle`. Every form has 5 questions / 100 points. Keep the original trusted form server-side; never accept candidate-provided questions/oracles.
+## Формирование и публикация теста
 
-`public_form(form) -> dict`: explicit allowlist projection, excludes every oracle/answer/checker/hidden fixture. Safe top-level metadata: version/form_id/specialization/grade/blueprint/rubric/questions; question: id/kind/title/prompt/code/options/max_points/competency/input_schema/dataset/schema. Option id/text only. Client can display this response directly.
+`build_form(specialization, grade, seed) -> dict` создает форму для `backend_python`, `frontend_ts` или `data_sql`, уровня `junior` или `middle`. `seed` – целое число из допустимого диапазона либо строка. Ответ содержит `version`, `form_id`, `specialization`, `grade`, `blueprint`, `rubric`, `questions` и серверный `_oracle`. Каждая форма содержит 5 заданий на 100 баллов. Доверенная форма и эталон сохраняются на сервере.
 
-`answers`: JSON object keyed by question `id`. Values: `choice` -> one option ID string; `trace` -> exact JSON list; `multi_choice` -> unique list of option ID strings; `sql` -> one SELECT query string. Missing question scores zero; unknown keys/oversized/nested malformed submissions rejected with ValueError. IDs are present in public question input_schema; no free-text LLM grader. Code tasks assess selecting a patch, debugging, boundary reasoning and output tracing; they do not claim to test unrestricted code authoring.
+`public_form(form) -> dict` возвращает разрешенную проекцию без эталонных ответов, проверяющих функций и закрытых данных. Верхний уровень: `version`, `form_id`, `specialization`, `grade`, `blueprint`, `rubric`, `questions`. Задание: `id`, `kind`, `title`, `prompt`, `code`, `options`, `max_points`, `competency`, `input_schema`, `dataset`, `schema`; вариант ответа – `id` и `text`.
 
-`grade_form(form, answers) -> dict`: `version`, `form_id`, `specialization`, `grade`, `score`, `max_score` (=100), `passed`, `threshold`, `competencies` (competency -> {score,max_score,percentage,verified}), `evidence` (question_id,kind,competency,score,max_score,status), `feedback` (safe learning guidance). Pass = overall >=65 Junior / >=75 Middle and >=50% per measured competency. No complete reference solution/expected hidden output in feedback. This module does not persist grade or enforce user cooldown; backend owns those rules.
+`answers` – JSON-объект с ключами – идентификаторами заданий. `choice` принимает строку выбранного варианта, `trace` – точный JSON-список, `multi_choice` – список уникальных идентификаторов, `sql` – строку одного SELECT. Пропуск задания дает ноль баллов. Неизвестные поля, превышение размера и неверная вложенность отклоняются через `ValueError`.
 
-SQL tasks: disposable in-memory SQLite with trusted fixture. Read-only authorizer, one statement, function/table allowlists, 4,000-byte SQL, 30,000 VM steps, 0.10-second progress deadline, 50 result rows, 64 KiB per SQLite value and 64 KiB aggregate JSON result. Parser limits: expression depth 50, compound SELECT 10, columns 100 and variable number 100; candidate queries accept no bound parameters. Compiled bytecode is capped at 10,000 opcodes because [SQLite progress callbacks during complex compilation were added in 3.41](https://www.sqlite.org/c3ref/progress_handler.html); [opcode-limit allocation errors](https://www.sqlite.org/c3ref/c_limit_attached.html) become safe validation failures. Results are streamed and only JSON scalar values are accepted. These constraints require Python 3.11+ (`sqlite3.Connection.setlimit`); the backend image uses Python 3.12. Denied statements score zero with safe feedback. Python/TS snippets are shown and reasoned about, never eval/exec'd.
+Задания по коду проверяют выбор исправления, диагностику ошибки, граничные условия и трассировку результата. Python и TypeScript показываются участнику для анализа; исполнение `eval/exec` отсутствует.
 
-`rank_candidates(need, profiles) -> list[dict]`: safe profile field projection (no contacts, resume text, credentials); adds `score` (0..100), `explanation` list[str], `matching` with `version`, `eligible`, `coverage`, `unknown_requirements`, `components`. Excludes invisible profiles, wrong specialization, unverified/insufficient grade, incompatible declared work format/location or disjoint salary range, explicitly failed required skill evidence. Unknown required evidence remains eligible with a visible gap and a lower score; `need.require_verified_skills=true` excludes these gaps. `verified_skills` alone is scored; `skills` is self-report. A missing `verified_skills` list means unknown coverage. `fsp_achievements` contains dicts with `verified=true`, `source=demo_registry|fsp_registry`, and preferably `specialization`; only these can earn a bounded 5-point bonus when required coverage is complete. Demo records retain synthetic=true. Stable ordering score descending then profile ID.
+## Оценка
 
-Backend must strip private contact fields from all rank/search responses before API serialization. Input keys: need specialization/grade/required_skills/preferred_skills/salary_min/salary_max/work_format/location; profile id/specialization/declared_grade/verified_grade/skills/verified_skills/skill_evidence/salary_min/salary_max/work_format/location/visible/fsp_achievements/test_score/tested_at. `skill_evidence` optional mapping skill -> verified/failed/unknown. `tested_at` ISO timestamp; clock-dependent freshness excluded from deterministic score v1.
+`grade_form(form, answers) -> dict` возвращает `version`, `form_id`, `specialization`, `grade`, `score`, `max_score` (100), `passed`, `threshold`, `competencies`, `evidence` и `feedback`. Для каждой компетенции сохраняются `score`, `max_score`, `percentage`, `verified`; для задания – `question_id`, `kind`, `competency`, `score`, `max_score`, `status`.
+
+Подтверждение требует не менее 65 баллов для Junior, 75 для Middle и 50% каждой измеряемой компетенции. Обратная связь дает безопасные рекомендации без раскрытия полного решения. Сервер приложения сохраняет результат и управляет сроком повторной попытки.
+
+## Выполнение SQL
+
+SQL проверяется в одноразовой SQLite в памяти на доверенном наборе данных. Разрешен один запрос только на чтение; таблицы и функции задаются списками разрешений.
+
+Параметры: 4000 байт SQL, 30000 шагов виртуальной машины, 0,10 секунды выполнения, 50 строк результата, 64 КиБ на значение и на совокупный JSON-ответ. Глубина выражения – до 50, составной SELECT – до 10, число колонок и переменных – до 100. Параметры, переданные участником для привязки, отсутствуют. Скомпилированная программа содержит до 10000 операций; результат передается постепенно и содержит только скалярные значения JSON. Отклоненный запрос получает ноль баллов и безопасную обратную связь.
+
+Для `sqlite3.Connection.setlimit` требуется Python 3.11 или новее; серверный образ использует Python 3.12. Подробности механизма: [обработчик выполнения SQLite](https://www.sqlite.org/c3ref/progress_handler.html), [лимиты SQLite](https://www.sqlite.org/c3ref/c_limit_attached.html).
+
+## Подбор
+
+`rank_candidates(need, profiles) -> list[dict]` создает безопасные проекции профилей и добавляет `score` от 0 до 100, список `explanation` и блок `matching` с `version`, `eligible`, `coverage`, `unknown_requirements`, `components`.
+
+Обязательные условия: видимость, нужная специализация, достаточный подтвержденный уровень, совместимые условия работы, местоположение и зарплата. Подтвержденный провал требуемого навыка исключает профиль. Неизвестное подтверждение отображается как пробел с меньшим баллом; `need.require_verified_skills=true` исключает такие записи.
+
+В оценке навыков используется `verified_skills`; `skills` остается самоописанием. Пустое подтверждение означает неизвестное покрытие требований. Достижения `fsp_achievements` с `verified=true`, `source=demo_registry|fsp_registry` и соответствующей специализацией могут дать до пяти дополнительных баллов при полном покрытии требований. Демонстрационные записи сохраняют `synthetic=true`. Порядок: по убыванию балла, затем по идентификатору профиля.
+
+Поля потребности: `specialization`, `grade`, `required_skills`, `preferred_skills`, `salary_min`, `salary_max`, `work_format`, `location`. Поля профиля: `id`, `specialization`, `declared_grade`, `verified_grade`, `skills`, `verified_skills`, `skill_evidence`, `salary_min`, `salary_max`, `work_format`, `location`, `visible`, `fsp_achievements`, `test_score`, `tested_at`. `skill_evidence` связывает навык со статусом `verified`, `failed` или `unknown`. `tested_at` – время ISO; версия 1 использует детерминированную оценку без зависимости от текущего времени.
+
+Перед сериализацией API удаляет частные контактные поля из поиска и подбора. Доступ к контактам проверяется отдельно по разрешению кандидата конкретной компании.

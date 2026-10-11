@@ -1,9 +1,0 @@
-# id: PIP-AUDIT-RUNTIME-LOCK
-# cwd: <SCRATCH>/tests/src/fsp-match
-# command: VENV/bin/pip-audit -r backend/requirements.lock   (cache + TMPDIR in scratch; VENV unchanged)
-# started_utc: 2026-10-11T14:49:09.728958+00:00
-
-No known vulnerabilities found
-
-# finished_utc: 2026-10-11T14:49:24.251176+00:00
-# exit_code: 0

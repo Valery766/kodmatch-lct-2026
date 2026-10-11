@@ -1,20 +1,20 @@
 {
-  "scope": "Portable authored offline domain method; historical measured evidence retained, no production/network/human validation",
+  "назначение": "Процедура расчета результатов тестирования алгоритмов",
   "files": [
     {
-      "name": "run_validation.py",
+      "path": "VALIDATION_FOR_JURY.md",
+      "bytes": 10160,
+      "sha256": "096b1e5c8accabf139227e4312a69a12dededdac83015787436e5adb78ecf51b"
+    },
+    {
+      "path": "run_validation.py",
       "bytes": 16608,
       "sha256": "879d750384a07c639204691cbfb387c8ee5748cb03f3aba7e2ea6572d8f19f1b"
     },
     {
-      "name": "validation-evidence.json",
-      "bytes": 341921,
-      "sha256": "fb4ae40f5431ee65fce742b329cfaa90a8a5e16e80b95b82e0666cc5802091e1"
-    },
-    {
-      "name": "VALIDATION_FOR_JURY.md",
-      "bytes": 13504,
-      "sha256": "17b003ded9f5ad43f7763d520abbb9d5b20446bfc5d94ddc21142119f602aa5a"
+      "path": "validation-evidence.json",
+      "bytes": 340188,
+      "sha256": "79d369a575df246f27071462119794cbcc1f58fec93ea2dbe826310fa2d53361"
     }
   ]
 }

@@ -1,96 +1,72 @@
 {
-  "project": "КОД.МЭТЧ",
-  "author": "unecon.tech",
-  "created_at_utc": "2026-10-11T15:17:20.460281+00:00",
-  "edition": "2026-10-11",
-  "release": "0.1.0-20261011T104017Z",
-  "status": "PASS_DOCUMENTS_SCOPED",
+  "проект": "КОД.МЭТЧ",
+  "автор": "unecon.tech",
+  "редакция": "Финальная редакция 11.10.2026",
+  "результат": "Текст и оформление проверены",
   "pages": {
-    "technical": 22,
-    "jury_guide": 3
+    "КОД.МЭТЧ_Инструкция_для_жюри.pdf": 2,
+    "КОД.МЭТЧ_Техническая_документация.pdf": 13
   },
-  "build": "Markdown -> DOCX (python-docx) -> PDF (LibreOffice headless); сборочный скрипт команды хранится вне комплекта",
   "files": [
     {
-      "path": "documents/README_ДЛЯ_ЖЮРИ.md",
-      "bytes": 4963,
-      "sha256": "4762eefba0c44ffdd78afe2cfa60071ae1e9cc3b3b50683c51f5aae4170b952f"
+      "path": "README_ДЛЯ_ЖЮРИ.md",
+      "bytes": 3448,
+      "sha256": "9c547824ac0472e42368fa612d82c5fa096ad2517ccc6d1f7a4435e2bfc97d65"
     },
     {
-      "path": "documents/assets/architecture.png",
-      "bytes": 218657,
-      "sha256": "6c483e14a9fccabeb925c72bd8fde6e766f657fc9e116a0dc88def0e19e7af38"
+      "path": "assets/architecture.png",
+      "bytes": 146326,
+      "sha256": "db58e75e82bc3e2854a7d4cae54398d763810791ce9ea6856bf48fab2f19ea11"
     },
     {
-      "path": "documents/assets/design-desktop-final.png",
+      "path": "assets/design-desktop-final.png",
       "bytes": 74738,
       "sha256": "37a710f1e121ab093a0039e3e93bd3ff5fed23121206994bea1b76d1401270b7"
     },
     {
-      "path": "documents/assets/fsp-integration.png",
-      "bytes": 196672,
-      "sha256": "74401d633a7e2a4248d95b65300d7a63a4ef7621b968b70faf251ca6a2efd95b"
+      "path": "assets/fsp-integration.png",
+      "bytes": 105883,
+      "sha256": "17ed73a3874a0c057936d32d451c221acd69bdbd6c80844a9a0e927dc0a3677e"
     },
     {
-      "path": "documents/assets/max-mini-app-final.png",
+      "path": "assets/max-mini-app-final.png",
       "bytes": 31113,
       "sha256": "7c1f89b31a5787911e857cb831302581e155ca5134a8eb5e658c60c770b20eea"
     },
     {
-      "path": "documents/КОД.МЭТЧ_Инструкция_для_жюри.docx",
-      "bytes": 45583,
-      "sha256": "46b9cee290714909403021c17c29c030be919a7df77aa6910ff6e9f198a550da"
+      "path": "КОД.МЭТЧ_Инструкция_для_жюри.docx",
+      "bytes": 42826,
+      "sha256": "ed71a235acbd0bead9ae4eb5496688d00ea623431c37dd27b9719ef446076ecf"
     },
     {
-      "path": "documents/КОД.МЭТЧ_Инструкция_для_жюри.md",
-      "bytes": 17413,
-      "sha256": "0e957ff765eee6b1f8af58f009db8db58c54d021fed30c3657a9b86917612a58"
+      "path": "КОД.МЭТЧ_Инструкция_для_жюри.md",
+      "bytes": 10135,
+      "sha256": "6c56510d5bf50ee26471f40de1761940ca3de5c54bc9561e69e19c5da7fc079d"
     },
     {
-      "path": "documents/КОД.МЭТЧ_Инструкция_для_жюри.pdf",
-      "bytes": 128987,
-      "sha256": "6657554b48d02dd508bfbfa946ffce58d8425b5501dc78cbd6399910e6a3361d"
+      "path": "КОД.МЭТЧ_Инструкция_для_жюри.pdf",
+      "bytes": 119153,
+      "sha256": "e56507eabc2c8acc58f0f15c055df5d1da98fd913942331167e8e715b486a6dd"
     },
     {
-      "path": "documents/КОД.МЭТЧ_Техническая_документация.docx",
-      "bytes": 463389,
-      "sha256": "a092ed1ca3c41ace1e4fe72bd3b0c4eec66fd1570ec81f3744cca166ca836012"
+      "path": "КОД.МЭТЧ_Техническая_документация.docx",
+      "bytes": 291408,
+      "sha256": "472e1e50d7ec4b0355346914d20c5ae4b8b57eed7324f80d229ee38bcbef9285"
     },
     {
-      "path": "documents/КОД.МЭТЧ_Техническая_документация.md",
-      "bytes": 112894,
-      "sha256": "ed8e35c15b373ca5920abcdb700826046702e975ffdb1fd090e70278d08a3f22"
+      "path": "КОД.МЭТЧ_Техническая_документация.md",
+      "bytes": 58801,
+      "sha256": "c18332f9f82a3ae6d5121e4ea6ed99f554ad12150cd0e8b51c54d4721ac37c5f"
     },
     {
-      "path": "documents/КОД.МЭТЧ_Техническая_документация.pdf",
-      "bytes": 928082,
-      "sha256": "01e3d96db7862d42490d8cd7216f01731967760c00852515187e3194efe7434b"
+      "path": "КОД.МЭТЧ_Техническая_документация.pdf",
+      "bytes": 722757,
+      "sha256": "07f94b422296e54231da55c3b2b8eb1b971003282cbf15079a28e78ee6cc34a5"
     },
     {
-      "path": "documents/СОСТАВ_КОМПЛЕКТА.md",
-      "bytes": 1799,
-      "sha256": "44156707c059b258e233e63a0d929d0ae914bb0dd686add8a472c5b006fa6777"
+      "path": "СОСТАВ_КОМПЛЕКТА.md",
+      "bytes": 1733,
+      "sha256": "146209e768fcf73e4904df3fee6258f06bf7ed7083b04b6d5109d56c3c932e9a"
     }
-  ],
-  "verification": {
-    "DOCX_full_body_in_PDF": true,
-    "A4_no_blank_pages": true,
-    "hyperlinks_clickable_in_PDF": true,
-    "current_brand_and_en_dash": true,
-    "MAX_only_public_guide": true,
-    "public_author_unecon_tech": true,
-    "permitted_contact_emails_only": true,
-    "all_PDF_pages_visually_reviewed": true
-  },
-  "limits": [
-    "Document review is not another independent execution of the live product scenarios.",
-    "Historical acceptance dates are retained; separate 11 October live receipts are cited.",
-    "Physical clients, new external inbox receipt and independent human/HR calibration are scoped separately.",
-    "Operational handoff and credentials are excluded from the jury package."
-  ],
-  "final_file_review": {
-    "tested_at_utc": "2026-10-11T16:10:36.257429+00:00",
-    "evidence": "evidence/FINAL_DOCUMENT_REVIEW_20261011.json",
-    "scope": "Проверка файлов документов, без повторного прохождения бизнес-сценариев"
-  }
+  ]
 }

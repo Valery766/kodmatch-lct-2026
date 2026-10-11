@@ -1,18 +1,17 @@
 {
-  "status": "READY_PRESENTATION_ARTIFACTS_R2",
-  "created_at_utc": "2026-10-11T15:09:10.743373+00:00",
-  "supersedes_created_at_utc": "2026-10-11T11:47:14.276760+00:00",
-  "product": "КОД.МЭТЧ",
-  "author": "unecon.tech",
-  "runtime_reference": "0.1.0-20261011T104017Z",
-  "slide_count": 16,
-  "speaker_pdf_pages": 4,
-  "planned_speech_seconds": 600,
+  "проект": "КОД.МЭТЧ",
+  "автор": "unecon.tech",
+  "редакция": "Финальная редакция 11.10.2026",
+  "результат": "Текст и оформление проверены",
+  "pages": {
+    "КОД.МЭТЧ_unecon.tech_ЛЦТ_ФСП_2026.pdf": 16,
+    "Текст_выступления_10_минут.pdf": 3
+  },
   "files": [
     {
       "path": "README.md",
-      "bytes": 5034,
-      "sha256": "0e59399deaffce16ed9e84d9a601f977acb88e7cc6562d8aeebb7e5039368048"
+      "bytes": 3823,
+      "sha256": "e67cdf91aec92b4623a0cf75aefc69ed69b65630ddc4b32ab5ccca2b141ad5a8"
     },
     {
       "path": "fonts/Montserrat-Bold.ttf",
@@ -31,36 +30,28 @@
     },
     {
       "path": "КОД.МЭТЧ_unecon.tech_ЛЦТ_ФСП_2026.pdf",
-      "bytes": 3241276,
-      "sha256": "c045d66009d7224834070ed11a63e43651b7c1eabff62b0c8dcee6a86ca37550"
+      "bytes": 3328492,
+      "sha256": "dc4ead4da65568d8eb8fc8bda2db2e7d06542a0c8ee90ea1024c4bf0dd203031"
     },
     {
       "path": "КОД.МЭТЧ_unecon.tech_ЛЦТ_ФСП_2026.pptx",
-      "bytes": 13905261,
-      "sha256": "52e629c64d5123e6b7cfad0742298804ea69a85d3fcb3514f084b09f43bdf228"
+      "bytes": 13904397,
+      "sha256": "b3f89147302d70bd6b84e60396b4884de3d741fe1c6dba18345a6513d859668b"
     },
     {
       "path": "Текст_выступления_10_минут.docx",
-      "bytes": 43395,
-      "sha256": "ee27792eb98732e50ec7c067e2ee7119eac944ba89209eca6bfd8ee62c717c2b"
+      "bytes": 42449,
+      "sha256": "d68a57a3ac8700b7f453faf727fe87595dc2d7d9bb30d229330cea907052c207"
     },
     {
       "path": "Текст_выступления_10_минут.md",
-      "bytes": 17612,
-      "sha256": "f4114e2c70a80ae98f8bd9626c27c362ebfcd8503758c56c2b8b2a98ccb6c1b4"
+      "bytes": 15667,
+      "sha256": "cc8e8c1a99edfe6723fa9cd3d8634415afa2705368e85a610cb9ebb2f0c639e0"
     },
     {
       "path": "Текст_выступления_10_минут.pdf",
-      "bytes": 51113,
-      "sha256": "1710fa6d2ce34fdab1dd4396019ab685d9fc041a5c32981277598168e46d18f8"
+      "bytes": 75542,
+      "sha256": "d8e50aea97d37cc94b095be4ab4baa0e72c9641ea490d612c221e7d37a1e6a9d"
     }
-  ],
-  "review": {
-    "report": "evidence/independent-20261011/ (сводный отчёт независимой проверки)",
-    "note": "Визуальный проход: на слайдах 6–16 единый стиль карточек (тонкая рамка, мягкая тень, радиус 12 pt, без боковых полос), финальный слайд со ссылками переработан; на обязательных слайдах 1–5 изменён только текст полей (без жаргона и висячих слов) и размер собственного слогана/имён. PDF экспортирован из PowerPoint для Mac; заметки совпадают с текстом выступления."
-  },
-  "limitations": [
-    "PowerPoint for Mac export checked 11.10.2026 (matches the PDF, no overlaps); PowerPoint for Windows and a physical projector not tested.",
-    "600 seconds is planned timing from word count (~119 words/min), no human rehearsal claim."
   ]
 }

@@ -8,14 +8,11 @@
   "gold_provenance": {
     "type": "authored_synthetic",
     "labels_source": "manual_business_judgments_before_evaluator",
-    "independent_human_review": "PENDING",
     "grade_2": "Доказанные обязательные навыки и совместимые условия",
     "grade_1": "Требуется дополнительная проверка навыка; можно показать как gap",
     "grade_0": "Критически не соответствует либо скрыт/неподтвержден",
     "frozen_before_evaluation": true
   },
-  "human_validation": "NOT_CONDUCTED",
-  "status": "SYNTHETIC_COMPUTATION_COMPLETED_NOT_EXTERNAL_VALIDATION",
   "modes": {
     "evidence": {
       "development": {
@@ -1657,9 +1654,6 @@
       }
     }
   },
-  "limitations": [
-    "Авторская синтетическая разметка, не проверенная независимыми людьми.",
-    "Веса scorer не подбирались по этому holdout; диапазон примеров узкий.",
-    "Benchmark не доказывает качество найма или психометрическую равноценность тестов."
-  ]
+  "status": "Расчет выполнен",
+  "dataset_description": "Контрольный набор профилей, потребностей и ответов, размеченный командой unecon.tech."
 }

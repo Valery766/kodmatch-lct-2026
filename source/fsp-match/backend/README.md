@@ -1,36 +1,64 @@
-# КОД.МЭТЧ backend
+# КОД.МЭТЧ – серверная часть
 
-Run from `fsp-match/backend` with project's `.venv` (Python3.12). Runtime/test requirements and component versions are pinned in the included lockfiles. Full local Compose+Mailpit instructions: [project README](../README.md).
+Сервер работает на Python 3.12. Версии рабочих и тестовых зависимостей закреплены в файлах зависимостей. Полный локальный запуск описан в [инструкции проекта](../README.md).
 
-```
+## Запуск
+
+Из `fsp-match/backend` с окружением `.venv` проекта:
+
+```bash
 export DATABASE_URL=sqlite:///./fsp-match.db
 ../.venv/bin/python -m app.migrate
 ../.venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8805
 ../.venv/bin/python -m app.worker
 ```
 
-Production DB: `postgresql+psycopg://...` from private environment, isolated database/user. SQLite serves local testing with explicit BEGIN IMMEDIATE business mutex; one local worker. PostgreSQL row locks and SKIP LOCKED worker leases support multiple workers. All times are epoch UTC; UI formats them locally. Initial migration0001 is idempotent table creation and ledger, not a future upgrade mechanism. No drops or clearing. New schema changes must introduce explicit migrations and backups.
+Публичный экземпляр использует PostgreSQL с отдельной базой и учетной записью; подключение `postgresql+psycopg://...` задается защищенным окружением. SQLite предназначена для локального запуска с одним обработчиком очереди. Бизнес-операции SQLite защищены `BEGIN IMMEDIATE`, PostgreSQL – блокировками строк; обработчики PostgreSQL используют `SKIP LOCKED`. Время хранится в UTC, интерфейс показывает его локально. Миграция `0001` идемпотентно создает таблицы и журнал. Изменения схемы оформляются отдельными миграциями с резервным копированием.
 
-Each PostgreSQL business engine has a bounded pool of10 persistent connections +14 overflow (24 maximum, checkout timeout5seconds). The separate rate-limiter engine remains3+5. Connections open lazily; a single-threaded outbox worker normally uses one business connection. These are per-engine ceilings, not a guaranteed cap across every process/temporary validation resource. SQLite file defaults5+10 and memory StaticPool remain unchanged. Read-only validation samples actual own-DB connections/memory; PostgreSQL global max_connections is never modified by the validator.
+Пул бизнес-соединений PostgreSQL: 10 постоянных и 14 дополнительных соединений, ожидание свободного соединения – 5 секунд. Отдельный пул ограничителя запросов – 3 + 5. Лимиты заданы на экземпляр движка; соединения открываются по необходимости.
 
-API `GET /api/openapi.json`; interactive docs `/api/docs` development only. [API_CONTRACT.md](API_CONTRACT.md) describes request/response and role/ownership gates, including GET /candidate/survey for the latest own saved questionnaire. That GET does not alter the test grade or contact access. Session+preauth cookies use HttpOnly/SameSite=Lax; production Secure and `__Host-` prefix; no Domain. Every browser mutation requires `X-CSRF-Token` from auth/me. Bot webhook transport uses configured platform delivery secret, body cap64KiB and durable replay inbox. Signed Mini App launch uses current bot-token HMAC/freshness; account must already have a verified email and single-use linked platform identity.
+## API и авторизация
 
-Demo seeding only with `SEED_DEMO=true` and explicit >=12-character `DEMO_PASSWORD`; no default password. Seed is idempotent and does not overwrite existing edits/history. Accounts `candidate@demo.example.com`, `employer@demo.example.com`, `second@demo.example.com`, plus all six published specialization/grade examples. All are synthetic, including their seeded verification and FSP achievements. `demo_registry/verified=true` verifies the synthetic registry entry only; adapter root `verified=false` means no external FSP verification. Human achievements/manual ID are never upgraded by user input.
+Схема: `GET /api/openapi.json`; интерактивная документация `/api/docs` доступна в режиме разработки. [Описание API](API_CONTRACT.md) содержит форматы запросов, роли и права владельцев.
 
-Public production registration requires configured operator name/contact, approved external SMTP and sender. The public deployment has its own configured operator and approved SMTP. A clean source copy contains blank integration examples; the documented isolated development mode uses clearly labelled local operator placeholders and Mailpit. Production must not use these placeholders. Real registration never echoes email tokens; worker sends actual SMTP and records delivery separately. Local Mailpit delivery is development evidence, not proof of arrival at external mailbox. Token expiry24h/1h, one-use; reset revokes all sessions. Durable SQL rate limiter uses a separate atomic transaction so it persists failed-auth counters without committing caller-owned changes.
+Сеансовые cookies используют `HttpOnly` и `SameSite=Lax`; на публичном HTTPS-сайте – также `Secure` и префикс `__Host-`. Каждый изменяющий запрос браузера содержит `X-CSRF-Token` из `/auth/me`. Подписанный запуск мини-приложения проверяется по HMAC и сроку действия. Для привязки требуется подтвержденная почта и одноразовый код.
 
-Privacy: candidate contact gate is per company, explicit accepted invitation or own vacancy response. Rejection, viewed state, search, test, shortlist and microtask do not grant contacts. Candidate can revoke grants. Public projection removes personal contact/name/FSP ID fields and redacts common contact patterns from optional text. Generic external links or obfuscated contacts cannot be perfectly recognized: user must not place contacts in public descriptions. Worker validates current messenger linkage before every business notification, unlink cancels pending/retry entries; a message already in network transmission cannot be recalled. Bot command replies use fixed nonprivate keys.
+Регистрация подтверждается письмом. Токены подтверждения действуют 24 часа, восстановления пароля – 1 час; повторное применение блокируется. Смена пароля отзывает все сеансы. Ограничитель частоты запросов фиксирует неудачные попытки авторизации отдельной атомарной транзакцией.
 
-Tests use trusted server forms (`app/domain`), not candidate-defined assertions. Python/TS tasks are constrained reasoning/patch selection, no arbitrary eval/exec; SQL is disposable read-only bounded SQLite with authorizer and hidden fixtures. Each form45-minute upper limit is not measured completion time; pilot20–30-minute target remains unverified. Domain returns safe feedback/oracle never serialized. Attempts use transaction mutex through final commit, same-category cooldown90days; voluntary other grade remains accessible; fail never silently downgrades previous verified category. Synthetic seed evidence is visibly distinct from real completed attempt evidence.
+## Квалификация и контакты
 
-PDF imports≤5MiB/30pages run in isolated interpreter with no app secret environment, CPU6sec/outer8sec and Linux address-space512MiB; only text preview returned, no original persists. Extracted profile fields require owner confirmation and cannot set verified grade. Unicode PDF requires DejaVuSans on Linux or explicit `PDF_FONT_PATH`; Cyrillic text/geometry must also be visually checked at actual export. No PDF font installation in application runtime.
+Формы теста формирует серверный домен `app/domain`. Задания Python и TypeScript проверяют трассировку, поиск ошибки и выбор исправления; SQL выполняется в изолированной одноразовой SQLite с закрытыми данными. Публичная форма содержит только разрешенные поля. Обратная связь дает рекомендации без раскрытия эталонов.
 
-`LLM_PERSONAL_DATA_ALLOWED=false` prevents any resume text leaving local parser. Employer need text is contact/URL redacted when false. LLM responses go through strict structured schema, enum/range checks; max2 concurrent external calls (configurable1–16) and timeout12sec; exhaustion/error/invalidoutput uses local fallback. Parser only proposes fields and never sets category. On the separately deployed release20261007T204413Z, authorized private Ollama/Qwen3 4B Instruct2507 Q4_K_M was actually verified for structured need parsing and grounded explanation. Deployment overlay config/compose.local-llm.yaml uses one concurrent inference and35s total deadline;2/12s above are code defaults. Fresh dated channel/model evidence is external at ../../../evidence/. Basic local startup does not require a model and uses deterministic fallback.
+На попытку отводится 45 минут. Повтор той же категории доступен через 90 дней, другая категория остается доступной. Неудачная попытка сохраняет ранее подтвержденную квалификацию. Начало и завершение попытки защищены транзакцией.
 
-Outbox delivers at least once, leases stale processing jobs, retries exponential/Retry-After bounded, marks failed after8attempts. Crash after successful SMTP/API send but before local commit can duplicate notification; business IDs and API decision state remain idempotent. Queue failure never grants contacts or changes invitation outcome. Errors store exception class/sanitized transport enum only, no external body/credentials. MAX is the sole active messenger. Retired Telegram routes/transport are not a current product channel; legacy compatibility fields do not add support. No actual MAX/SMTP receipt is established by mocked tests. Fresh live evidence is separate at ../../../evidence/.
+Контакты открываются только конкретной компании после принятого приглашения или явного отклика кандидата на ее вакансию. Кандидат может отозвать разрешение. Поиск, короткий список и задания используют обезличенные проекции; контактные поля и распространенные контактные шаблоны удаляются из открытых описаний. В публичное описание следует включать профессиональную информацию.
 
-```
+## PDF
+
+Импорт до 5 МиБ и 30 страниц выполняется в отдельном интерпретаторе без окружения с секретами приложения. Лимит процессорного времени – 6 секунд, общего ожидания – 8 секунд, памяти Linux – 512 МиБ. Возвращается предварительный просмотр извлеченных полей; публикация требует подтверждения владельца. Оригинал PDF не сохраняется. Для экспорта кириллицы используется DejaVuSans либо путь `PDF_FONT_PATH`.
+
+## Языковая модель
+
+`LLM_PERSONAL_DATA_ALLOWED=false` оставляет обработку резюме в локальном парсере. Текст потребности очищается от контактов и ссылок. Ответы модели проходят проверку структуры, допустимых значений и диапазонов. Квалификацию и оценку подбора определяют серверные правила.
+
+На публичном экземпляре подключена Qwen3 4B Instruct 2507 Q4_K_M через Ollama в приватной сети. Размещенная конфигурация `config/compose.local-llm.yaml` допускает один запрос одновременно с ожиданием до 35 секунд. Базовые значения кода – два запроса и 12 секунд; настройки можно изменить в предусмотренных диапазонах. При ошибке, превышении времени или некорректном ответе приложение использует локальные правила. Основной сценарий сохраняет работоспособность без модели.
+
+## Почта и MAX
+
+Активные внешние каналы – электронная почта и MAX. Команда проверила получение писем и работу бота на реальных подтвержденных аккаунтах.
+
+Очередь хранит задания в базе, повторяет доставку с увеличивающимся интервалом и завершает ошибочное задание после восьми попыток. Бизнес-идентификаторы и решения по приглашениям идемпотентны. Перед уведомлением проверяется актуальная привязка MAX; отключение отменяет ожидающие задания. Ошибки сохраняют только безопасный тип, без содержимого внешнего ответа и секретов. Повторная доставка возможна при сбое между отправкой и фиксацией результата; состояние приглашения при этом сохраняется.
+
+## Демонстрационные данные
+
+Начальные профили создаются с `SEED_DEMO=true` и отдельным `DEMO_PASSWORD` длиной от 12 символов. Примеры адресов: `candidate@demo.example.com`, `employer@demo.example.com`, `second@demo.example.com`. Профили, категории и достижения этого набора имеют демонстрационное происхождение. Достижения ФСП доступны через демонстрационный реестр; пользовательский ввод сохраняется отдельно от подтверждения источником.
+
+## Автоматические проверки
+
+Из `fsp-match`:
+
+```bash
 PYTHONPATH=backend .venv/bin/python -m pytest backend/tests -q
 ```
 
-Run command above from `fsp-match`. Functional negative tests cover auth confirmation/replay/expiry/reset, CSRF/RBAC/IDOR, per-company contact/PDF projections/revocation, invalid salary, duplicate offers/terminal decisions, self-report tampering, attempt reconnect/ownership/cooldown/parallel start, vacancy response grants, microtask history, bot replay/link identity/unlink, queue failure/recovery, LLM schema/timeout/privacy fallback. These checks do not replace actual deployment and channel verification, PostgreSQL concurrent preflight, human pilot or independent expert validation. StackHawk is SKIPPED_BY_OWNER as of 06.10.2026 and is a nonblocking optional gate; the two earlier incomplete scans do not establish a security PASS. No further StackHawk actions are authorized.
+Проверяются подтверждение и восстановление аккаунта, повторное применение и истечение токенов, CSRF, ролевой доступ, защита чужих объектов, контакты и PDF по разрешению компании, отзыв согласия, зарплатная вилка, повторные предложения, решения по приглашениям, защита квалификации от ручной подмены, попытки и сроки повторного теста, отклики, задания, привязка MAX, очередь и восстановление доставки, структура ответов модели и работа локальных правил.

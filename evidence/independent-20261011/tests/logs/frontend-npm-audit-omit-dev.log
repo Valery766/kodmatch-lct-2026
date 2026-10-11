@@ -1,9 +1,0 @@
-# id: FE-NPM-AUDIT-PROD
-# cwd: <SCRATCH>/tests/frontend
-# command: npm audit --omit=dev
-# started_utc: 2026-10-11T14:41:54.778041+00:00
-
-found 0 vulnerabilities
-
-# finished_utc: 2026-10-11T14:41:55.662034+00:00
-# exit_code: 0

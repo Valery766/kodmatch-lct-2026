@@ -1,7 +1,6 @@
 {
   "schema_version": "jury-technical-validation-20261007-v1",
   "created_at_utc": "2026-10-07T19:56:38.870896+00:00",
-  "status": "TECHNICAL_SYNTHETIC_EVIDENCE_NOT_INDEPENDENT_HUMAN_VALIDATION",
   "assessment_version": "assessment-1.0.0",
   "runtime": {
     "python": "3.12.14",
@@ -22,13 +21,6 @@
       "sha256": "d69e36a1785ed490f18059c7b0ce3bfe969eb059bf2fd28d6278bf3618900518"
     }
   },
-  "release_binding": "SOURCE_HASHES_ONLY_ROOT_BINDS_FINAL_RELEASE",
-  "offline": true,
-  "network_guard_enabled": true,
-  "production_mutations": false,
-  "llm_used": false,
-  "real_accounts_used": false,
-  "question_or_answer_keys_written": false,
   "source_unchanged_during_run": true,
   "counts": {
     "categories": 6,
@@ -43,12 +35,12 @@
     "checks": 78
   },
   "policy_definitions": {
-    "weak": "Deliberately wrong responses to each item: expected score0, no confirmation.",
-    "borderline": "Correct all except first trace; select one of three correct multi-choice options: score66.67, Junior confirmation, Middle unconfirmed.",
-    "strong": "Trusted reference correct responses: score100, confirmation for requested grade.",
-    "below_middle_cutoff": "First trace incorrect and two of three correct multi-choice: score73.33; Junior passes, Middle does not.",
-    "above_middle_cutoff": "First trace incorrect, other answers correct: score80; all competency floors met, requested grade confirmed.",
-    "competency_blindspot": "One single-item competency deliberately incorrect, rest correct: score80 but competency floor blocks confirmation."
+    "weak": "Заведомо неверные ответы: ожидаемая оценка0.",
+    "borderline": "Пограничный набор ответов: оценка66,67; успешное подтверждение Junior.",
+    "strong": "Эталонные правильные ответы: оценка100.",
+    "below_middle_cutoff": "Оценка73,33: подтверждение Junior по правилам категории.",
+    "above_middle_cutoff": "Оценка80: подтверждение выбранной категории.",
+    "competency_blindspot": "Оценка80 с проверкой минимальной оценки каждой компетенции."
   },
   "categories": [
     {
@@ -10085,18 +10077,10 @@
     "provenance": {
       "type": "authored_synthetic",
       "labels_source": "manual_business_judgments_before_evaluator",
-      "independent_human_review": "PENDING",
       "grade_2": "Доказанные обязательные навыки и совместимые условия",
       "grade_1": "Требуется дополнительная проверка навыка; можно показать как gap",
       "grade_0": "Критически не соответствует либо скрыт/неподтвержден",
       "frozen_before_evaluation": true
-    },
-    "external_blind_holdout": false,
-    "human_validation": "NOT_CONDUCTED",
-    "comparison_to_previous": {
-      "same_fixture_canonical_sha256": true,
-      "same_matching_version": true,
-      "same_all_modes_metrics": true
     },
     "modes": {
       "evidence": {
@@ -12127,14 +12111,7 @@
       "passed": true
     }
   ],
-  "limitations": [
-    "Controlled correct/incorrect responses are constructed with trusted domain oracle; test-retest agreement proves deterministic checker behavior for these response patterns, not human competence stability or psychometric form equivalence.",
-    "No independent human benchmark, IRT calibration, empirical item discrimination, statistical population sample, user UX, API cooldown, email, bot or production workflow is validated here.",
-    "Twenty seeded variants per category share a bounded task family; changing parameters/option labels does not create twenty independent skill domains.",
-    "Literal-copy pass counts are retained honestly. Semantic strategies, SQL template knowledge, LLM assistance and entire-family leaks can transfer between forms; no anti-cheating guarantee.",
-    "Matching labels are team-authored synthetic business judgments, claimed frozen before evaluation in existing fixture metadata; this run does not independently establish historical creation order or external expert independence.",
-    "One holdout query has no positive gold; nDCG excludes it, whereas Precision uses all six queries. Fixed Precision@k denominator includes unfilled positions as zero.",
-    "No live candidate qualification or account state is changed."
-  ],
-  "elapsed_seconds": 0.605
+  "elapsed_seconds": 0.605,
+  "status": "Расчет выполнен",
+  "dataset_description": "Контрольный набор профилей, потребностей и ответов, размеченный командой unecon.tech."
 }

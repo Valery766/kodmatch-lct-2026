@@ -1,7 +1,9 @@
-# MAX TLS certificate bundle
+# КОД.МЭТЧ – сертификаты TLS для MAX
 
-`russian_trusted_bundle.crt` contains public Russian Trusted Root CA and Russian Trusted Sub CA certificates, reused from the owner's existing MAX project archive. It contains no private key. SHA256: `b1696a7fa10f6baf306178116ceb0424f174c4395fa4fd44e30f85882b3459a5`.
+`russian_trusted_bundle.crt` содержит публичные сертификаты Russian Trusted Root CA и Russian Trusted Sub CA. Контрольная сумма SHA256: `b1696a7fa10f6baf306178116ceb0424f174c4395fa4fd44e30f85882b3459a5`.
 
-The current [official MAX API](https://dev.max.ru/docs-api) requires the certificates of the Ministry of Digital Development. Official distribution: [Gosuslugi](https://www.gosuslugi.ru/crt), [root](https://gu-st.ru/content/Other/doc/russian_trusted_root_ca.cer), [intermediate](https://gu-st.ru/content/Other/doc/russian_trusted_sub_ca.cer). Live verification and comparison results are recorded in `validation/max-ca-provenance.json` outside the source package.
+Источники: [документация API MAX](https://dev.max.ru/docs-api), [сертификаты на Госуслугах](https://www.gosuslugi.ru/crt), [корневой сертификат](https://gu-st.ru/content/Other/doc/russian_trusted_root_ca.cer), [промежуточный сертификат](https://gu-st.ru/content/Other/doc/russian_trusted_sub_ca.cer).
 
-Compose mounts this exact public file read-only into this project's API and worker. `MAX_CA_BUNDLE` is consumed only by MAX's `httpx` SSL context with certificate and hostname verification enabled. It changes neither global trust nor SMTP/LLM TLS settings. Root certificate expires in 2032, intermediate in 2027: maintain this project file when the official chain changes. Never disable TLS verification as a fallback.
+Docker Compose подключает файл к API и обработчику очереди только для чтения. `MAX_CA_BUNDLE` применяется к SSL-контексту `httpx` для MAX с проверкой сертификата и имени узла. Настройки доверия операционной системы, SMTP и языковой модели сохраняются отдельно.
+
+Корневой сертификат действует до 2032 года, промежуточный – до 2027 года. При изменении официальной цепочки обновляется только этот проектный файл; проверка TLS остается включенной.
