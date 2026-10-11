@@ -1,0 +1,16 @@
+# Optional, only after the separately approved inference project is installed.
+# No host port and no provider key: access is restricted to the private network.
+services:
+  api:
+    environment:
+      LLM_BASE_URL: http://fsp-match-llm-ollama-1:11434/v1
+      LLM_MODEL: kodmatch-qwen3-4b-instruct-2507-q4km-8k:1
+      LLM_API_KEY: ""
+      LLM_TIMEOUT_SECONDS: "35"
+      LLM_MAX_CONCURRENCY: "1"
+      LLM_PERSONAL_DATA_ALLOWED: "false"
+    networks: [fsp_private, fsp_llm]
+networks:
+  fsp_llm:
+    name: fsp-match-llm-private
+    external: true

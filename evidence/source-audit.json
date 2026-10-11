@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "source_files_including_manifest_and_sha": 119,
+  "source_payload_bytes": 4249095,
+  "manifest_sha256": "6ecce832530524d755c0fd3fc0888655cd522bb20c19cd61bb914d0a8831fa05",
+  "checksums_sha256": "4177375ad86205b84315ef15331bf5e18149e2b793b6df930aa976746491dd62",
+  "runtime_code_files": 73,
+  "runtime_code_errors": [],
+  "saved_private_matching_paths": [],
+  "private_key_headers": [],
+  "personal_paths": [],
+  "forbidden_paths": [],
+  "critical_missing": [],
+  "method_manifest_errors": [],
+  "notices_retained": [
+    "fsp-match/frontend/public/brand/fsp/fonts/Inter-LICENSE.txt",
+    "fsp-match/frontend/public/brand/fsp/fonts/TDAText-LICENSE.txt",
+    "fsp-match/frontend/public/brand/fsp/fonts/JetBrainsMono-OFL.txt"
+  ],
+  "test_status": "PASS",
+  "runtime_release": "20261011T104017Z",
+  "runtime_manifest_sha256": "54c4ccab59d83b307f4f342f3941ce2248fd2d31108a2d8385e0ff8b56559122",
+  "tested_payload_changed_paths": [],
+  "final_PG_restore_pass": true,
+  "final_public_runtime_pass": true
+}

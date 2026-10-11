@@ -1,0 +1,22 @@
+{
+  "recorded_at_utc": "2026-10-11T10:53:00.889Z",
+  "release": "0.1.0-20261011T104017Z",
+  "employer_verified_login": true,
+  "employer_matching_visible": true,
+  "employer_logout": true,
+  "colleague_verified_candidate_login": true,
+  "colleague_survey_saved": true,
+  "colleague_assessment_start": true,
+  "colleague_assessment_draft_survived_reload": true,
+  "colleague_assessment_submitted": true,
+  "colleague_assessment_grade": "Junior",
+  "colleague_assessment_score": 100,
+  "technical_testing_not_human_qualification": true,
+  "question_answer_basis": "Only the task text shown in the candidate interface; no server answer key",
+  "retained_mutations": [
+    "technical candidate survey",
+    "completed Python Junior attempt and 90-day cooldown"
+  ],
+  "profile_visibility_changed": false,
+  "team_footer_email_and_role_verified": true
+}

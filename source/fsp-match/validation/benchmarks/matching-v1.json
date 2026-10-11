@@ -1,0 +1,1776 @@
+{
+  "version": "matching-fixture-1.0.0",
+  "provenance": {
+    "type": "authored_synthetic",
+    "labels_source": "manual_business_judgments_before_evaluator",
+    "independent_human_review": "PENDING",
+    "grade_2": "Доказанные обязательные навыки и совместимые условия",
+    "grade_1": "Требуется дополнительная проверка навыка; можно показать как gap",
+    "grade_0": "Критически не соответствует либо скрыт/неподтвержден",
+    "frozen_before_evaluation": true
+  },
+  "needs": [
+    {
+      "id": "b-payments",
+      "specialization": "backend_python",
+      "grade": "middle",
+      "required_skills": [
+        "python",
+        "api"
+      ],
+      "preferred_skills": [
+        "testing"
+      ],
+      "salary_min": 160000,
+      "salary_max": 240000,
+      "work_format": "remote",
+      "split": "development",
+      "description": "Платежный API, надежная работа повторных запросов"
+    },
+    {
+      "id": "b-junior",
+      "specialization": "backend_python",
+      "grade": "junior",
+      "required_skills": [
+        "python"
+      ],
+      "preferred_skills": [
+        "testing"
+      ],
+      "salary_min": 160000,
+      "salary_max": 240000,
+      "work_format": "remote",
+      "split": "development",
+      "description": "Стажировка backend: валидация входов и Python"
+    },
+    {
+      "id": "b-office",
+      "specialization": "backend_python",
+      "grade": "middle",
+      "required_skills": [
+        "python",
+        "api"
+      ],
+      "preferred_skills": [
+        "testing"
+      ],
+      "salary_min": 160000,
+      "salary_max": 240000,
+      "work_format": "office",
+      "split": "holdout",
+      "description": "Backend офис Санкт-Петербург",
+      "location": "Санкт-Петербург"
+    },
+    {
+      "id": "b-full",
+      "specialization": "backend_python",
+      "grade": "middle",
+      "required_skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "preferred_skills": [],
+      "salary_min": 160000,
+      "salary_max": 240000,
+      "work_format": "remote",
+      "split": "holdout",
+      "description": "Backend с обязательным подтверждением всех трех компетенций",
+      "require_verified_skills": true
+    },
+    {
+      "id": "f-async",
+      "specialization": "frontend_ts",
+      "grade": "middle",
+      "required_skills": [
+        "typescript",
+        "async"
+      ],
+      "preferred_skills": [
+        "testing"
+      ],
+      "salary_min": 160000,
+      "salary_max": 240000,
+      "work_format": "remote",
+      "split": "development",
+      "description": "Интерфейс поиска, гонки асинхронных ответов"
+    },
+    {
+      "id": "f-junior",
+      "specialization": "frontend_ts",
+      "grade": "junior",
+      "required_skills": [
+        "typescript",
+        "javascript"
+      ],
+      "preferred_skills": [
+        "testing"
+      ],
+      "salary_min": 160000,
+      "salary_max": 240000,
+      "work_format": "remote",
+      "split": "development",
+      "description": "Frontend базовые формы и React состояние"
+    },
+    {
+      "id": "f-office",
+      "specialization": "frontend_ts",
+      "grade": "middle",
+      "required_skills": [
+        "typescript",
+        "async"
+      ],
+      "preferred_skills": [
+        "testing"
+      ],
+      "salary_min": 160000,
+      "salary_max": 240000,
+      "work_format": "office",
+      "split": "holdout",
+      "description": "Frontend офис Москва",
+      "location": "Москва"
+    },
+    {
+      "id": "f-unmeasured",
+      "specialization": "frontend_ts",
+      "grade": "middle",
+      "required_skills": [
+        "react"
+      ],
+      "preferred_skills": [
+        "testing"
+      ],
+      "salary_min": 160000,
+      "salary_max": 240000,
+      "work_format": "remote",
+      "split": "holdout",
+      "description": "Нужно обязательное практическое подтверждение React, которого банк не измеряет",
+      "require_verified_skills": true
+    },
+    {
+      "id": "d-aggregate",
+      "specialization": "data_sql",
+      "grade": "middle",
+      "required_skills": [
+        "sql",
+        "data_modeling"
+      ],
+      "preferred_skills": [
+        "testing"
+      ],
+      "salary_min": 160000,
+      "salary_max": 240000,
+      "work_format": "remote",
+      "split": "development",
+      "description": "Аналитика заказов, SQL без дублирования JOIN"
+    },
+    {
+      "id": "d-junior",
+      "specialization": "data_sql",
+      "grade": "junior",
+      "required_skills": [
+        "sql"
+      ],
+      "preferred_skills": [
+        "testing"
+      ],
+      "salary_min": 160000,
+      "salary_max": 240000,
+      "work_format": "remote",
+      "split": "development",
+      "description": "Junior аналитик: SQL NULL, WHERE и HAVING"
+    },
+    {
+      "id": "d-office",
+      "specialization": "data_sql",
+      "grade": "middle",
+      "required_skills": [
+        "sql",
+        "data_modeling"
+      ],
+      "preferred_skills": [
+        "testing"
+      ],
+      "salary_min": 160000,
+      "salary_max": 240000,
+      "work_format": "office",
+      "split": "holdout",
+      "description": "Аналитик офис Москва",
+      "location": "Москва"
+    },
+    {
+      "id": "d-full",
+      "specialization": "data_sql",
+      "grade": "middle",
+      "required_skills": [
+        "sql",
+        "data_modeling",
+        "testing"
+      ],
+      "preferred_skills": [],
+      "salary_min": 160000,
+      "salary_max": 240000,
+      "work_format": "remote",
+      "split": "holdout",
+      "description": "SQL с обязательным подтверждением всех трех компетенций",
+      "require_verified_skills": true
+    }
+  ],
+  "profiles": [
+    {
+      "id": "b01",
+      "display_name": "Демо B01",
+      "specialization": "backend_python",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 100,
+      "skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "verified_skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "b02",
+      "display_name": "Демо B02",
+      "specialization": "backend_python",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 76,
+      "skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "verified_skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": [
+        {
+          "id": "demo-backend_python",
+          "title": "Синтетический турнир",
+          "verified": true,
+          "source": "demo_registry",
+          "synthetic": true,
+          "specialization": "backend_python"
+        }
+      ]
+    },
+    {
+      "id": "b03",
+      "display_name": "Демо B03",
+      "specialization": "backend_python",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 95,
+      "skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "verified_skills": [
+        "python",
+        "api"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "b04",
+      "display_name": "Демо B04",
+      "specialization": "backend_python",
+      "declared_grade": "junior",
+      "verified_grade": "junior",
+      "test_score": 90,
+      "skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "verified_skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "b05",
+      "display_name": "Демо B05",
+      "specialization": "backend_python",
+      "declared_grade": "senior",
+      "verified_grade": null,
+      "test_score": 100,
+      "skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "verified_skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "b06",
+      "display_name": "Демо B06",
+      "specialization": "backend_python",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 78,
+      "skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "verified_skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "b07",
+      "display_name": "Демо B07",
+      "specialization": "backend_python",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 90,
+      "skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "verified_skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 300000,
+      "salary_max": 360000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "b08",
+      "display_name": "Демо B08",
+      "specialization": "backend_python",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 92,
+      "skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "verified_skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "office",
+      "location": "Казань",
+      "fsp_achievements": []
+    },
+    {
+      "id": "b09",
+      "display_name": "Демо B09",
+      "specialization": "backend_python",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 93,
+      "skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "verified_skills": [
+        "python"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "b10",
+      "display_name": "Демо B10",
+      "specialization": "backend_python",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 88,
+      "skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "verified_skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": [],
+      "skill_evidence": {
+        "api": "failed"
+      }
+    },
+    {
+      "id": "b11",
+      "display_name": "Демо B11",
+      "specialization": "backend_python",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 90,
+      "skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "verified_skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "visible": false,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "b12",
+      "display_name": "Демо B12",
+      "specialization": "backend_python",
+      "declared_grade": "junior",
+      "verified_grade": "junior",
+      "test_score": 85,
+      "skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "verified_skills": [
+        "python",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "b13",
+      "display_name": "Демо B13",
+      "specialization": "backend_python",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 89,
+      "skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "verified_skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "office",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "b14",
+      "display_name": "Демо B14",
+      "specialization": "backend_python",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 92,
+      "skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "verified_skills": [
+        "python",
+        "api",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": [
+        {
+          "id": "demo-data_sql",
+          "title": "Синтетический турнир",
+          "verified": true,
+          "source": "demo_registry",
+          "synthetic": true,
+          "specialization": "data_sql"
+        }
+      ]
+    },
+    {
+      "id": "f01",
+      "display_name": "Демо F01",
+      "specialization": "frontend_ts",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 98,
+      "skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing",
+        "react"
+      ],
+      "verified_skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "f02",
+      "display_name": "Демо F02",
+      "specialization": "frontend_ts",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 76,
+      "skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing",
+        "react"
+      ],
+      "verified_skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": [
+        {
+          "id": "demo-frontend_ts",
+          "title": "Синтетический турнир",
+          "verified": true,
+          "source": "demo_registry",
+          "synthetic": true,
+          "specialization": "frontend_ts"
+        }
+      ]
+    },
+    {
+      "id": "f03",
+      "display_name": "Демо F03",
+      "specialization": "frontend_ts",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 95,
+      "skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing",
+        "react"
+      ],
+      "verified_skills": [
+        "typescript",
+        "javascript",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "f04",
+      "display_name": "Демо F04",
+      "specialization": "frontend_ts",
+      "declared_grade": "junior",
+      "verified_grade": "junior",
+      "test_score": 92,
+      "skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing",
+        "react"
+      ],
+      "verified_skills": [
+        "typescript",
+        "javascript",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "f05",
+      "display_name": "Демо F05",
+      "specialization": "frontend_ts",
+      "declared_grade": "senior",
+      "verified_grade": null,
+      "test_score": 100,
+      "skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing",
+        "react"
+      ],
+      "verified_skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "f06",
+      "display_name": "Демо F06",
+      "specialization": "frontend_ts",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 82,
+      "skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing",
+        "react"
+      ],
+      "verified_skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "office",
+      "location": "Москва",
+      "fsp_achievements": []
+    },
+    {
+      "id": "f07",
+      "display_name": "Демо F07",
+      "specialization": "frontend_ts",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 92,
+      "skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing",
+        "react"
+      ],
+      "verified_skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 300000,
+      "salary_max": 360000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "f08",
+      "display_name": "Демо F08",
+      "specialization": "frontend_ts",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 90,
+      "skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing",
+        "react"
+      ],
+      "verified_skills": [
+        "typescript"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "f09",
+      "display_name": "Демо F09",
+      "specialization": "frontend_ts",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 93,
+      "skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing",
+        "react"
+      ],
+      "verified_skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": [],
+      "skill_evidence": {
+        "async": "failed"
+      }
+    },
+    {
+      "id": "f10",
+      "display_name": "Демо F10",
+      "specialization": "frontend_ts",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 90,
+      "skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing",
+        "react"
+      ],
+      "verified_skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing"
+      ],
+      "visible": false,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "f11",
+      "display_name": "Демо F11",
+      "specialization": "frontend_ts",
+      "declared_grade": "junior",
+      "verified_grade": "junior",
+      "test_score": 84,
+      "skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing",
+        "react"
+      ],
+      "verified_skills": [
+        "typescript"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "f12",
+      "display_name": "Демо F12",
+      "specialization": "frontend_ts",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 89,
+      "skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing",
+        "react"
+      ],
+      "verified_skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "office",
+      "location": "Казань",
+      "fsp_achievements": []
+    },
+    {
+      "id": "f13",
+      "display_name": "Демо F13",
+      "specialization": "frontend_ts",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 94,
+      "skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing",
+        "react"
+      ],
+      "verified_skills": [
+        "typescript",
+        "javascript",
+        "async",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "d01",
+      "display_name": "Демо D01",
+      "specialization": "data_sql",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 98,
+      "skills": [
+        "sql",
+        "data_modeling",
+        "testing",
+        "postgresql"
+      ],
+      "verified_skills": [
+        "sql",
+        "data_modeling",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "d02",
+      "display_name": "Демо D02",
+      "specialization": "data_sql",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 76,
+      "skills": [
+        "sql",
+        "data_modeling",
+        "testing",
+        "postgresql"
+      ],
+      "verified_skills": [
+        "sql",
+        "data_modeling",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": [
+        {
+          "id": "demo-data_sql",
+          "title": "Синтетический турнир",
+          "verified": true,
+          "source": "demo_registry",
+          "synthetic": true,
+          "specialization": "data_sql"
+        }
+      ]
+    },
+    {
+      "id": "d03",
+      "display_name": "Демо D03",
+      "specialization": "data_sql",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 95,
+      "skills": [
+        "sql",
+        "data_modeling",
+        "testing",
+        "postgresql"
+      ],
+      "verified_skills": [
+        "sql",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "d04",
+      "display_name": "Демо D04",
+      "specialization": "data_sql",
+      "declared_grade": "junior",
+      "verified_grade": "junior",
+      "test_score": 92,
+      "skills": [
+        "sql",
+        "data_modeling",
+        "testing",
+        "postgresql"
+      ],
+      "verified_skills": [
+        "sql",
+        "data_modeling",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "d05",
+      "display_name": "Демо D05",
+      "specialization": "data_sql",
+      "declared_grade": "senior",
+      "verified_grade": null,
+      "test_score": 100,
+      "skills": [
+        "sql",
+        "data_modeling",
+        "testing",
+        "postgresql"
+      ],
+      "verified_skills": [
+        "sql",
+        "data_modeling",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "d06",
+      "display_name": "Демо D06",
+      "specialization": "data_sql",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 82,
+      "skills": [
+        "sql",
+        "data_modeling",
+        "testing",
+        "postgresql"
+      ],
+      "verified_skills": [
+        "sql",
+        "data_modeling",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "office",
+      "location": "Москва",
+      "fsp_achievements": []
+    },
+    {
+      "id": "d07",
+      "display_name": "Демо D07",
+      "specialization": "data_sql",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 92,
+      "skills": [
+        "sql",
+        "data_modeling",
+        "testing",
+        "postgresql"
+      ],
+      "verified_skills": [
+        "sql",
+        "data_modeling",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 300000,
+      "salary_max": 360000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "d08",
+      "display_name": "Демо D08",
+      "specialization": "data_sql",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 90,
+      "skills": [
+        "sql",
+        "data_modeling",
+        "testing",
+        "postgresql"
+      ],
+      "verified_skills": [
+        "sql"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "d09",
+      "display_name": "Демо D09",
+      "specialization": "data_sql",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 93,
+      "skills": [
+        "sql",
+        "data_modeling",
+        "testing",
+        "postgresql"
+      ],
+      "verified_skills": [
+        "sql",
+        "data_modeling",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": [],
+      "skill_evidence": {
+        "sql": "failed"
+      }
+    },
+    {
+      "id": "d10",
+      "display_name": "Демо D10",
+      "specialization": "data_sql",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 90,
+      "skills": [
+        "sql",
+        "data_modeling",
+        "testing",
+        "postgresql"
+      ],
+      "verified_skills": [
+        "sql",
+        "data_modeling",
+        "testing"
+      ],
+      "visible": false,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "d11",
+      "display_name": "Демо D11",
+      "specialization": "data_sql",
+      "declared_grade": "junior",
+      "verified_grade": "junior",
+      "test_score": 84,
+      "skills": [
+        "sql",
+        "data_modeling",
+        "testing",
+        "postgresql"
+      ],
+      "verified_skills": [
+        "sql"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": []
+    },
+    {
+      "id": "d12",
+      "display_name": "Демо D12",
+      "specialization": "data_sql",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 89,
+      "skills": [
+        "sql",
+        "data_modeling",
+        "testing",
+        "postgresql"
+      ],
+      "verified_skills": [
+        "sql",
+        "data_modeling",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "office",
+      "location": "Казань",
+      "fsp_achievements": []
+    },
+    {
+      "id": "d13",
+      "display_name": "Демо D13",
+      "specialization": "data_sql",
+      "declared_grade": "middle",
+      "verified_grade": "middle",
+      "test_score": 94,
+      "skills": [
+        "sql",
+        "data_modeling",
+        "testing",
+        "postgresql"
+      ],
+      "verified_skills": [
+        "sql",
+        "data_modeling",
+        "testing"
+      ],
+      "visible": true,
+      "salary_min": 150000,
+      "salary_max": 220000,
+      "work_format": "remote",
+      "location": "Санкт-Петербург",
+      "fsp_achievements": [
+        {
+          "id": "demo-backend_python",
+          "title": "Синтетический турнир",
+          "verified": true,
+          "source": "demo_registry",
+          "synthetic": true,
+          "specialization": "backend_python"
+        }
+      ]
+    }
+  ],
+  "labels": {
+    "b-payments": {
+      "b01": 2,
+      "b02": 2,
+      "b03": 2,
+      "b04": 0,
+      "b05": 0,
+      "b06": 2,
+      "b07": 0,
+      "b08": 0,
+      "b09": 1,
+      "b10": 0,
+      "b11": 0,
+      "b12": 0,
+      "b13": 0,
+      "b14": 2,
+      "f01": 0,
+      "f02": 0,
+      "f03": 0,
+      "f04": 0,
+      "f05": 0,
+      "f06": 0,
+      "f07": 0,
+      "f08": 0,
+      "f09": 0,
+      "f10": 0,
+      "f11": 0,
+      "f12": 0,
+      "f13": 0,
+      "d01": 0,
+      "d02": 0,
+      "d03": 0,
+      "d04": 0,
+      "d05": 0,
+      "d06": 0,
+      "d07": 0,
+      "d08": 0,
+      "d09": 0,
+      "d10": 0,
+      "d11": 0,
+      "d12": 0,
+      "d13": 0
+    },
+    "b-junior": {
+      "b01": 2,
+      "b02": 2,
+      "b03": 1,
+      "b04": 2,
+      "b05": 0,
+      "b06": 2,
+      "b07": 0,
+      "b08": 0,
+      "b09": 1,
+      "b10": 1,
+      "b11": 0,
+      "b12": 2,
+      "b13": 0,
+      "b14": 2,
+      "f01": 0,
+      "f02": 0,
+      "f03": 0,
+      "f04": 0,
+      "f05": 0,
+      "f06": 0,
+      "f07": 0,
+      "f08": 0,
+      "f09": 0,
+      "f10": 0,
+      "f11": 0,
+      "f12": 0,
+      "f13": 0,
+      "d01": 0,
+      "d02": 0,
+      "d03": 0,
+      "d04": 0,
+      "d05": 0,
+      "d06": 0,
+      "d07": 0,
+      "d08": 0,
+      "d09": 0,
+      "d10": 0,
+      "d11": 0,
+      "d12": 0,
+      "d13": 0
+    },
+    "b-office": {
+      "b01": 0,
+      "b02": 0,
+      "b03": 0,
+      "b04": 0,
+      "b05": 0,
+      "b06": 0,
+      "b07": 0,
+      "b08": 0,
+      "b09": 0,
+      "b10": 0,
+      "b11": 0,
+      "b12": 0,
+      "b13": 2,
+      "b14": 0,
+      "f01": 0,
+      "f02": 0,
+      "f03": 0,
+      "f04": 0,
+      "f05": 0,
+      "f06": 0,
+      "f07": 0,
+      "f08": 0,
+      "f09": 0,
+      "f10": 0,
+      "f11": 0,
+      "f12": 0,
+      "f13": 0,
+      "d01": 0,
+      "d02": 0,
+      "d03": 0,
+      "d04": 0,
+      "d05": 0,
+      "d06": 0,
+      "d07": 0,
+      "d08": 0,
+      "d09": 0,
+      "d10": 0,
+      "d11": 0,
+      "d12": 0,
+      "d13": 0
+    },
+    "b-full": {
+      "b01": 2,
+      "b02": 2,
+      "b03": 0,
+      "b04": 0,
+      "b05": 0,
+      "b06": 2,
+      "b07": 0,
+      "b08": 0,
+      "b09": 0,
+      "b10": 0,
+      "b11": 0,
+      "b12": 0,
+      "b13": 0,
+      "b14": 2,
+      "f01": 0,
+      "f02": 0,
+      "f03": 0,
+      "f04": 0,
+      "f05": 0,
+      "f06": 0,
+      "f07": 0,
+      "f08": 0,
+      "f09": 0,
+      "f10": 0,
+      "f11": 0,
+      "f12": 0,
+      "f13": 0,
+      "d01": 0,
+      "d02": 0,
+      "d03": 0,
+      "d04": 0,
+      "d05": 0,
+      "d06": 0,
+      "d07": 0,
+      "d08": 0,
+      "d09": 0,
+      "d10": 0,
+      "d11": 0,
+      "d12": 0,
+      "d13": 0
+    },
+    "f-async": {
+      "b01": 0,
+      "b02": 0,
+      "b03": 0,
+      "b04": 0,
+      "b05": 0,
+      "b06": 0,
+      "b07": 0,
+      "b08": 0,
+      "b09": 0,
+      "b10": 0,
+      "b11": 0,
+      "b12": 0,
+      "b13": 0,
+      "b14": 0,
+      "f01": 2,
+      "f02": 2,
+      "f03": 1,
+      "f04": 0,
+      "f05": 0,
+      "f06": 0,
+      "f07": 0,
+      "f08": 1,
+      "f09": 0,
+      "f10": 0,
+      "f11": 0,
+      "f12": 0,
+      "f13": 2,
+      "d01": 0,
+      "d02": 0,
+      "d03": 0,
+      "d04": 0,
+      "d05": 0,
+      "d06": 0,
+      "d07": 0,
+      "d08": 0,
+      "d09": 0,
+      "d10": 0,
+      "d11": 0,
+      "d12": 0,
+      "d13": 0
+    },
+    "f-junior": {
+      "b01": 0,
+      "b02": 0,
+      "b03": 0,
+      "b04": 0,
+      "b05": 0,
+      "b06": 0,
+      "b07": 0,
+      "b08": 0,
+      "b09": 0,
+      "b10": 0,
+      "b11": 0,
+      "b12": 0,
+      "b13": 0,
+      "b14": 0,
+      "f01": 2,
+      "f02": 2,
+      "f03": 2,
+      "f04": 2,
+      "f05": 0,
+      "f06": 0,
+      "f07": 0,
+      "f08": 1,
+      "f09": 2,
+      "f10": 0,
+      "f11": 1,
+      "f12": 0,
+      "f13": 2,
+      "d01": 0,
+      "d02": 0,
+      "d03": 0,
+      "d04": 0,
+      "d05": 0,
+      "d06": 0,
+      "d07": 0,
+      "d08": 0,
+      "d09": 0,
+      "d10": 0,
+      "d11": 0,
+      "d12": 0,
+      "d13": 0
+    },
+    "f-office": {
+      "b01": 0,
+      "b02": 0,
+      "b03": 0,
+      "b04": 0,
+      "b05": 0,
+      "b06": 0,
+      "b07": 0,
+      "b08": 0,
+      "b09": 0,
+      "b10": 0,
+      "b11": 0,
+      "b12": 0,
+      "b13": 0,
+      "b14": 0,
+      "f01": 0,
+      "f02": 0,
+      "f03": 0,
+      "f04": 0,
+      "f05": 0,
+      "f06": 2,
+      "f07": 0,
+      "f08": 0,
+      "f09": 0,
+      "f10": 0,
+      "f11": 0,
+      "f12": 0,
+      "f13": 0,
+      "d01": 0,
+      "d02": 0,
+      "d03": 0,
+      "d04": 0,
+      "d05": 0,
+      "d06": 0,
+      "d07": 0,
+      "d08": 0,
+      "d09": 0,
+      "d10": 0,
+      "d11": 0,
+      "d12": 0,
+      "d13": 0
+    },
+    "f-unmeasured": {
+      "b01": 0,
+      "b02": 0,
+      "b03": 0,
+      "b04": 0,
+      "b05": 0,
+      "b06": 0,
+      "b07": 0,
+      "b08": 0,
+      "b09": 0,
+      "b10": 0,
+      "b11": 0,
+      "b12": 0,
+      "b13": 0,
+      "b14": 0,
+      "f01": 0,
+      "f02": 0,
+      "f03": 0,
+      "f04": 0,
+      "f05": 0,
+      "f06": 0,
+      "f07": 0,
+      "f08": 0,
+      "f09": 0,
+      "f10": 0,
+      "f11": 0,
+      "f12": 0,
+      "f13": 0,
+      "d01": 0,
+      "d02": 0,
+      "d03": 0,
+      "d04": 0,
+      "d05": 0,
+      "d06": 0,
+      "d07": 0,
+      "d08": 0,
+      "d09": 0,
+      "d10": 0,
+      "d11": 0,
+      "d12": 0,
+      "d13": 0
+    },
+    "d-aggregate": {
+      "b01": 0,
+      "b02": 0,
+      "b03": 0,
+      "b04": 0,
+      "b05": 0,
+      "b06": 0,
+      "b07": 0,
+      "b08": 0,
+      "b09": 0,
+      "b10": 0,
+      "b11": 0,
+      "b12": 0,
+      "b13": 0,
+      "b14": 0,
+      "f01": 0,
+      "f02": 0,
+      "f03": 0,
+      "f04": 0,
+      "f05": 0,
+      "f06": 0,
+      "f07": 0,
+      "f08": 0,
+      "f09": 0,
+      "f10": 0,
+      "f11": 0,
+      "f12": 0,
+      "f13": 0,
+      "d01": 2,
+      "d02": 2,
+      "d03": 1,
+      "d04": 0,
+      "d05": 0,
+      "d06": 0,
+      "d07": 0,
+      "d08": 1,
+      "d09": 0,
+      "d10": 0,
+      "d11": 0,
+      "d12": 0,
+      "d13": 2
+    },
+    "d-junior": {
+      "b01": 0,
+      "b02": 0,
+      "b03": 0,
+      "b04": 0,
+      "b05": 0,
+      "b06": 0,
+      "b07": 0,
+      "b08": 0,
+      "b09": 0,
+      "b10": 0,
+      "b11": 0,
+      "b12": 0,
+      "b13": 0,
+      "b14": 0,
+      "f01": 0,
+      "f02": 0,
+      "f03": 0,
+      "f04": 0,
+      "f05": 0,
+      "f06": 0,
+      "f07": 0,
+      "f08": 0,
+      "f09": 0,
+      "f10": 0,
+      "f11": 0,
+      "f12": 0,
+      "f13": 0,
+      "d01": 2,
+      "d02": 2,
+      "d03": 2,
+      "d04": 2,
+      "d05": 0,
+      "d06": 0,
+      "d07": 0,
+      "d08": 1,
+      "d09": 0,
+      "d10": 0,
+      "d11": 1,
+      "d12": 0,
+      "d13": 2
+    },
+    "d-office": {
+      "b01": 0,
+      "b02": 0,
+      "b03": 0,
+      "b04": 0,
+      "b05": 0,
+      "b06": 0,
+      "b07": 0,
+      "b08": 0,
+      "b09": 0,
+      "b10": 0,
+      "b11": 0,
+      "b12": 0,
+      "b13": 0,
+      "b14": 0,
+      "f01": 0,
+      "f02": 0,
+      "f03": 0,
+      "f04": 0,
+      "f05": 0,
+      "f06": 0,
+      "f07": 0,
+      "f08": 0,
+      "f09": 0,
+      "f10": 0,
+      "f11": 0,
+      "f12": 0,
+      "f13": 0,
+      "d01": 0,
+      "d02": 0,
+      "d03": 0,
+      "d04": 0,
+      "d05": 0,
+      "d06": 2,
+      "d07": 0,
+      "d08": 0,
+      "d09": 0,
+      "d10": 0,
+      "d11": 0,
+      "d12": 0,
+      "d13": 0
+    },
+    "d-full": {
+      "b01": 0,
+      "b02": 0,
+      "b03": 0,
+      "b04": 0,
+      "b05": 0,
+      "b06": 0,
+      "b07": 0,
+      "b08": 0,
+      "b09": 0,
+      "b10": 0,
+      "b11": 0,
+      "b12": 0,
+      "b13": 0,
+      "b14": 0,
+      "f01": 0,
+      "f02": 0,
+      "f03": 0,
+      "f04": 0,
+      "f05": 0,
+      "f06": 0,
+      "f07": 0,
+      "f08": 0,
+      "f09": 0,
+      "f10": 0,
+      "f11": 0,
+      "f12": 0,
+      "f13": 0,
+      "d01": 2,
+      "d02": 2,
+      "d03": 0,
+      "d04": 0,
+      "d05": 0,
+      "d06": 0,
+      "d07": 0,
+      "d08": 0,
+      "d09": 0,
+      "d10": 0,
+      "d11": 0,
+      "d12": 0,
+      "d13": 2
+    }
+  }
+}

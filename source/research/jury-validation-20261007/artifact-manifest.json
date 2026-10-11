@@ -1,0 +1,20 @@
+{
+  "scope": "Portable authored offline domain method; historical measured evidence retained, no production/network/human validation",
+  "files": [
+    {
+      "name": "run_validation.py",
+      "bytes": 16608,
+      "sha256": "879d750384a07c639204691cbfb387c8ee5748cb03f3aba7e2ea6572d8f19f1b"
+    },
+    {
+      "name": "validation-evidence.json",
+      "bytes": 341921,
+      "sha256": "fb4ae40f5431ee65fce742b329cfaa90a8a5e16e80b95b82e0666cc5802091e1"
+    },
+    {
+      "name": "VALIDATION_FOR_JURY.md",
+      "bytes": 13504,
+      "sha256": "17b003ded9f5ad43f7763d520abbb9d5b20446bfc5d94ddc21142119f602aa5a"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+name: ${FSP_COMPOSE_PROJECT:-fsp-match}
+services:
+  db:
+    image: postgres:17-alpine@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: fsp_match
+      POSTGRES_USER: fsp_match
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set project database password}
+    volumes: ["fsp_data:/var/lib/postgresql/data"]
+    networks: [fsp_private]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fsp_match -d fsp_match"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    mem_limit: 1g
+    cpus: 2
+    logging: {driver: json-file, options: {max-size: 10m, max-file: "3"}}
+  api:
+    build: ./backend
+    image: fsp-match-api:${RELEASE_VERSION:-0.1.0}
+    restart: unless-stopped
+    env_file: [.secrets/runtime.env, .secrets/integrations.env]
+    environment:
+      DATABASE_URL: postgresql+psycopg://fsp_match:${POSTGRES_PASSWORD}@db:5432/fsp_match
+      ENVIRONMENT: production
+      RELEASE_VERSION: ${RELEASE_VERSION:-0.1.0}
+      APP_URL: ${PUBLIC_APP_URL:-https://fsp.digital-projects.tech}
+      ALLOWED_ORIGINS: ${PUBLIC_APP_URL:-https://fsp.digital-projects.tech}
+      SMTP_FROM: ${EMAIL_FROM:-}
+      SMTP_REPLY_TO: ${EMAIL_REPLY_TO:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_STARTTLS: ${SMTP_STARTTLS:-true}
+      SMTP_SSL: ${SMTP_SSL:-false}
+      LLM_BASE_URL: ${LLM_API_BASE_URL:-}
+      PDF_FONT_PATH: /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+      MAX_CA_BUNDLE: /etc/fsp-match/max-ca.crt
+    volumes: ["./config/certs/russian_trusted_bundle.crt:/etc/fsp-match/max-ca.crt:ro"]
+    depends_on: {db: {condition: service_healthy}}
+    networks: [fsp_private]
+    read_only: true
+    tmpfs: ["/tmp:rw,noexec,nosuid,size=64m"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    pids_limit: 128
+    mem_limit: 1g
+    cpus: 2
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/ready', timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+    logging: {driver: json-file, options: {max-size: 10m, max-file: "3"}}
+  worker:
+    image: fsp-match-api:${RELEASE_VERSION:-0.1.0}
+    restart: unless-stopped
+    env_file: [.secrets/runtime.env, .secrets/integrations.env]
+    environment:
+      DATABASE_URL: postgresql+psycopg://fsp_match:${POSTGRES_PASSWORD}@db:5432/fsp_match
+      ENVIRONMENT: production
+      RELEASE_VERSION: ${RELEASE_VERSION:-0.1.0}
+      APP_URL: ${PUBLIC_APP_URL:-https://fsp.digital-projects.tech}
+      ALLOWED_ORIGINS: ${PUBLIC_APP_URL:-https://fsp.digital-projects.tech}
+      SMTP_FROM: ${EMAIL_FROM:-}
+      SMTP_REPLY_TO: ${EMAIL_REPLY_TO:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_STARTTLS: ${SMTP_STARTTLS:-true}
+      SMTP_SSL: ${SMTP_SSL:-false}
+      MAX_CA_BUNDLE: /etc/fsp-match/max-ca.crt
+    volumes: ["./config/certs/russian_trusted_bundle.crt:/etc/fsp-match/max-ca.crt:ro"]
+    command: ["python", "-m", "app.worker"]
+    depends_on: {api: {condition: service_healthy}}
+    networks: [fsp_private]
+    read_only: true
+    tmpfs: ["/tmp:rw,noexec,nosuid,size=32m"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    pids_limit: 64
+    mem_limit: 512m
+    cpus: 1
+    logging: {driver: json-file, options: {max-size: 10m, max-file: "3"}}
+  web:
+    build: ./frontend
+    image: fsp-match-web:${RELEASE_VERSION:-0.1.0}
+    restart: unless-stopped
+    ports: ["127.0.0.1:${FSP_PORT:-8094}:8080"]
+    depends_on: {api: {condition: service_healthy}}
+    networks: [fsp_private]
+    read_only: true
+    tmpfs: ["/tmp:rw,noexec,nosuid,size=32m"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    pids_limit: 64
+    mem_limit: 128m
+    cpus: 1
+    logging: {driver: json-file, options: {max-size: 10m, max-file: "3"}}
+networks:
+  fsp_private:
+    name: ${FSP_NETWORK_NAME:-fsp-match-private}
+volumes:
+  fsp_data:
+    name: ${FSP_VOLUME_NAME:-fsp-match-postgres}

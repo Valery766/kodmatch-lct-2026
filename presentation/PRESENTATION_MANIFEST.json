@@ -1,0 +1,68 @@
+{
+  "status": "READY_PRESENTATION_ARTIFACTS",
+  "created_at_utc": "2026-10-11T11:47:14.276760+00:00",
+  "product": "КОД.МЭТЧ",
+  "author": "unecon.tech",
+  "runtime_reference": "0.1.0-20261011T104017Z",
+  "slide_count": 16,
+  "speaker_pdf_pages": 4,
+  "planned_speech_seconds": 600,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4692,
+      "sha256": "47a30ac709a842a847a716b1b9ebaaa12364ce5061463649092ec8955655ef84"
+    },
+    {
+      "path": "fonts/Montserrat-Bold.ttf",
+      "bytes": 454864,
+      "sha256": "bc6e854971cea46b463be6f9eef4d9cd52f51cfc1fc0dd90c9d3e6483dc0ec61"
+    },
+    {
+      "path": "fonts/Montserrat-Regular.ttf",
+      "bytes": 445928,
+      "sha256": "3e8abe50c44c82e2242e97d1ec8c0d385c4890cdc50447bcdb8605c81a38cfb2"
+    },
+    {
+      "path": "fonts/OFL.txt",
+      "bytes": 4400,
+      "sha256": "8b7141c03fa4f8d44e6345d5d4931709290f0f67875e452e95ac1fd3a027802e"
+    },
+    {
+      "path": "КОД.МЭТЧ_unecon.tech_ЛЦТ_ФСП_2026.pdf",
+      "bytes": 1906838,
+      "sha256": "59e466a94c21451bc79f598f6e1d718ff475c9da8bf540efec345d4d24e35da8"
+    },
+    {
+      "path": "КОД.МЭТЧ_unecon.tech_ЛЦТ_ФСП_2026.pptx",
+      "bytes": 13916467,
+      "sha256": "417a0a75aa742cff3b95d581db9f439060eb43a96ca6297caae0104a9b8c18ba"
+    },
+    {
+      "path": "Текст_выступления_10_минут.docx",
+      "bytes": 43288,
+      "sha256": "ce6edf5a5a943fa8f3f9f399d9afac1091d9fb2039888d317edd5ed1d9a9ff70"
+    },
+    {
+      "path": "Текст_выступления_10_минут.md",
+      "bytes": 17218,
+      "sha256": "323a8d21c9f0368b593c81c74dd3732a5dcddacaba8f50b59c1dd7a7ab5af88d"
+    },
+    {
+      "path": "Текст_выступления_10_минут.pdf",
+      "bytes": 63090,
+      "sha256": "0ed40645853529d4dc42668d5af3a54542dd671008d5b31e28fc783def3b7b75"
+    }
+  ],
+  "evidence": {
+    "automated_checks": 28,
+    "automated_audit_sha256": "4ab8c2ed252fc14ec50322049832f0a193d2ec0e512322aae469be212449c93b",
+    "visual_review_sha256": "cf482e9a62c69f445795003ce2d0523884dc390b01066996705bf0aa5e74b441",
+    "source_mapping_sha256": "75380a71f674ea0f0ddebf1b82777528b34af337b4e2e4dee4adf8a1646c7120"
+  },
+  "limitations": [
+    "Native PowerPoint on another device and physical projector not tested; checked PDF is reference.",
+    "600 seconds is planned timing, no human rehearsal claim.",
+    "Private GitHub publication remains owner controlled."
+  ]
+}

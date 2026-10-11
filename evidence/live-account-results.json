@@ -1,0 +1,158 @@
+{
+  "started_at_utc": "2026-10-11T11:04:06.849333+00:00",
+  "release": {
+    "version": "0.1.0-20261011T104017Z",
+    "assessment_version": "assessment-1.0.0",
+    "matching_version": "matching-v1"
+  },
+  "status": "PASS_SCOPED",
+  "accounts": {
+    "candidate-a": {
+      "role": "candidate",
+      "verified": true,
+      "ordinary": true,
+      "login_status": 200,
+      "read_only_endpoints_passed": 13,
+      "MAX_linked": true,
+      "MAX_configured": true,
+      "LLM_configured": true,
+      "saved_survey": true,
+      "attempt_statuses": [
+        "passed"
+      ],
+      "verified_category": "backend_python/junior",
+      "PDF_sha256": "e6a3396e3f50fe886005032bcaae59d33e0b540be9f56b9e968a4781292c902f",
+      "baseline_readback_changed_paths": []
+    },
+    "candidate-b": {
+      "role": "candidate",
+      "verified": true,
+      "ordinary": true,
+      "login_status": 200,
+      "read_only_endpoints_passed": 13,
+      "MAX_linked": false,
+      "MAX_configured": true,
+      "LLM_configured": true,
+      "saved_survey": true,
+      "attempt_statuses": [
+        "passed"
+      ],
+      "verified_category": "data_sql/junior",
+      "PDF_sha256": "c3cd517408b62b301e5a9ad8113c0729e43a8fc90e75106179fefbb615526602",
+      "baseline_readback_changed_paths": []
+    },
+    "employer": {
+      "role": "employer",
+      "verified": true,
+      "ordinary": true,
+      "login_status": 200,
+      "read_only_endpoints_passed": 12,
+      "MAX_linked": false,
+      "MAX_configured": true,
+      "LLM_configured": true,
+      "candidate_bank_count": 12,
+      "baseline_readback_changed_paths": [
+        "/employer/search-history"
+      ]
+    },
+    "colleague": {
+      "role": "candidate",
+      "verified": true,
+      "ordinary": true,
+      "login_status": 200,
+      "read_only_endpoints_passed": 13,
+      "MAX_linked": true,
+      "MAX_configured": true,
+      "LLM_configured": true,
+      "saved_survey": true,
+      "attempt_statuses": [
+        "passed"
+      ],
+      "verified_category": "backend_python/junior",
+      "PDF_sha256": "1c5d46f868629527cfde4eab926ec48945959147e47f7f6532345d96b060508a",
+      "baseline_readback_changed_paths": []
+    }
+  },
+  "checks": {
+    "public_health_ready_version": true,
+    "anonymous_candidate_profile_requires_login": true,
+    "candidate-a:only_MAX_public_messenger": true,
+    "candidate-a:attempt_payload_excludes_private_oracle": true,
+    "candidate-a:employer_company_denied": true,
+    "candidate-a:own_PDF_current_brand": true,
+    "candidate-b:only_MAX_public_messenger": true,
+    "candidate-b:attempt_payload_excludes_private_oracle": true,
+    "candidate-b:employer_company_denied": true,
+    "candidate-b:own_PDF_current_brand": true,
+    "employer:only_MAX_public_messenger": true,
+    "employer:candidate_survey_denied": true,
+    "employer:candidate_attempt_start_denied": true,
+    "employer:bank_contact_permission_projection": true,
+    "colleague:only_MAX_public_messenger": true,
+    "colleague:attempt_payload_excludes_private_oracle": true,
+    "colleague:employer_company_denied": true,
+    "colleague:own_PDF_current_brand": true,
+    "actual_model_structured_parse": true,
+    "model_parse_requires_owner_confirmation": true,
+    "parse_does_not_save_employer_need": true,
+    "actual_model_grounded_explanation": true,
+    "explanation_does_not_replace_deterministic_score": true,
+    "candidate-a:saved_business_state_preserved": true,
+    "candidate-b:saved_business_state_preserved": true,
+    "employer:saved_business_state_preserved": true,
+    "colleague:saved_business_state_preserved": true,
+    "current_SMTP_TLS_AUTH_without_send": true,
+    "candidate-a:helper_session_logout": true,
+    "candidate-b:helper_session_logout": true,
+    "employer:helper_session_logout": true,
+    "colleague:helper_session_logout": true
+  },
+  "model": {
+    "parse": {
+      "source": "llm_structured",
+      "seconds": 29.154,
+      "requires_confirmation": true,
+      "fields_keys": [
+        "grade",
+        "preferred_skills",
+        "required_skills",
+        "salary_max",
+        "salary_min",
+        "specialization",
+        "work_format"
+      ]
+    },
+    "explanation": {
+      "source": "llm_grounded",
+      "seconds": 5.884,
+      "score": 97.0,
+      "cached": false
+    }
+  },
+  "smtp": {
+    "configured": true,
+    "TLS_mode": "ssl",
+    "port": 465,
+    "sent_messages": 0,
+    "authenticated": true,
+    "authentication_code": 235,
+    "seconds": 0.42
+  },
+  "business_changes_by_helper": [
+    "own_search_history_entry",
+    "explanation_memory_cache"
+  ],
+  "private_values_output": false,
+  "limits": [
+    "API checks and provider authentication do not establish new external inbox receipt or physical phone behavior.",
+    "Account baselines belong to the authorized owner and remain private."
+  ],
+  "public_readiness": {
+    "/health": 200,
+    "/ready": 200,
+    "/version": 200
+  },
+  "private_baseline_sha256": "383cb1aba1a1adc5006da8152f36f1f96bed5b6e8b478c43c9510f55703af78b",
+  "private_after_sha256": "fa1bb2cac1d03751489d2259e681808dd05edae5bd2a9313519073325ce2e59d",
+  "ended_at_utc": "2026-10-11T11:05:09.939581+00:00"
+}

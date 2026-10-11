@@ -1,0 +1,105 @@
+{
+  "recorded_at_utc": "2026-10-11T10:45:01.744510+00:00",
+  "public": {
+    "/api/health": {
+      "status": 200,
+      "content_type": "application/json",
+      "csp": true
+    },
+    "/api/ready": {
+      "status": 200,
+      "content_type": "application/json",
+      "csp": true
+    },
+    "/api/version": {
+      "status": 200,
+      "content_type": "application/json",
+      "csp": true
+    },
+    "/privacy": {
+      "status": 200,
+      "content_type": "text/html",
+      "csp": true
+    },
+    "/mini/max": {
+      "status": 200,
+      "content_type": "text/html",
+      "csp": true
+    },
+    "/": {
+      "status": 200,
+      "new_brand": true,
+      "old_brand": false
+    }
+  },
+  "compiled_assets": {
+    "/assets/index-BtiYZ8F9.js": {
+      "status": 200,
+      "sha256": "f3eea81e5bf7f5d8a5c57c776d490c27d2d09117a748b9a73ea644ce1cc27571",
+      "matches_final_local_build": true
+    },
+    "/assets/index-D4eDyCLn.css": {
+      "status": 200,
+      "sha256": "0a3e5e93207cb7ea57844c33e7a74ba0ccef69a5ebaee92359039c5b0ecfe920",
+      "matches_final_local_build": true
+    }
+  },
+  "container_sources": {
+    "backend/app/domain/assessment.py": {
+      "sha256": "a61eda2b103e4bf8461250c20a5a7b3bc8bd1c6a53f6762651295ed62567d4d5",
+      "matches_final_manifest": true
+    },
+    "backend/app/domain/matching.py": {
+      "sha256": "194e1dcb4f0a85806ebf07c3a4ca1bf50d340773f7811d3209f946b4c8957157",
+      "matches_final_manifest": true
+    },
+    "backend/app/domain/validation.py": {
+      "sha256": "d69e36a1785ed490f18059c7b0ce3bfe969eb059bf2fd28d6278bf3618900518",
+      "matches_final_manifest": true
+    },
+    "backend/app/candidates.py": {
+      "sha256": "5a806bb9b4b461b4d160cc1b16b99e8815e95151a8351cb07e814f3b904c4792",
+      "matches_final_manifest": true
+    },
+    "backend/app/worker.py": {
+      "sha256": "86a5fa85aa130dba3097bd34146e90b16fb7204960e3214e65a9f509ca267423",
+      "matches_final_manifest": true
+    },
+    "backend/app/integrations/messengers.py": {
+      "sha256": "aaac2e1922a0229a448c7e8e787f5e66296fb72ff2a1ab67e9b83f0d0b23085d",
+      "matches_final_manifest": true
+    },
+    "backend/app/pdf.py": {
+      "sha256": "6329bc4baf2b8867bf08d4a0bb70e4e8742c104d953436d9f4b255088d39b95d",
+      "matches_final_manifest": true
+    }
+  },
+  "secret_values_output": false,
+  "version": {
+    "version": "0.1.0-20261011T104017Z",
+    "assessment_version": "assessment-1.0.0",
+    "matching_version": "matching-v1"
+  },
+  "http_redirect": {
+    "status": 301,
+    "https": true
+  },
+  "tls": {
+    "verified": true,
+    "protocol": "TLSv1.3",
+    "expires": "Jan  4 10:04:16 2027 GMT"
+  },
+  "host_resources": {
+    "cpu_count": 32,
+    "load_1_5_15": [
+      4.12060546875,
+      3.42236328125,
+      3.33984375
+    ],
+    "memory_total_bytes": 32617361408,
+    "memory_available_bytes": 26950840320,
+    "disk_total_bytes": 208661176320,
+    "disk_available_bytes": 113014939648
+  },
+  "passed": true
+}

@@ -1,0 +1,29 @@
+# Private runtime credentials and personal pilot material
+.secrets/
+.env
+.env.*
+!.env.example
+!*.env.example
+private-pilot/
+*.pem
+*.key
+*_ed25519
+*_rsa
+
+# Generated runtime and dependency artifacts
+.venv/
+node_modules/
+dist/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+coverage/
+runtime/
+*.sqlite
+*.sqlite3
+*.db
+.DS_Store
+
+.tools/
+.security-private/

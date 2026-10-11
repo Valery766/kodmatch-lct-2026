@@ -1,0 +1,10 @@
+# Linux build-only workaround when this host's default builder cannot reach
+# Debian/PyPI/npm while the host route works. Runtime networks stay isolated.
+# Reviewed build contexts contain project source only, never .secrets.
+services:
+  api:
+    build:
+      network: host
+  web:
+    build:
+      network: host

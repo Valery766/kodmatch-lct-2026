@@ -1,0 +1,19 @@
+{
+  "recorded_at_utc": "2026-10-11T11:50:30.847005+00:00",
+  "status": "PASS_REVIEWED_DELIVERABLES",
+  "team": "unecon.tech",
+  "release": "0.1.0-20261011T104017Z",
+  "presentation_slides": 16,
+  "presentation_formal_checks_passed": 28,
+  "technical_document_pages": 18,
+  "jury_guide_pages": 3,
+  "speech_pages": 4,
+  "planned_speech_seconds": 600,
+  "visual_review_all_slides_and_pages": true,
+  "original_template_7_to_11_preserved_as_final_1_to_5": true,
+  "office_author_and_editor": "unecon.tech",
+  "saved_credentials_scan": "PASS",
+  "privacy_saved_values_checked": 15,
+  "closed_sources_and_operational_handoff_excluded_from_public_payload": true,
+  "scope": "Rendered PDF/PNG and document package inspection; independent native PowerPoint device review and human rehearsal were not performed."
+}

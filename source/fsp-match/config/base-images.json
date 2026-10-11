@@ -1,0 +1,32 @@
+[
+  {
+    "image": "python",
+    "tag": "3.12-slim-bookworm",
+    "digest": "sha256:7753c33391fc9f01d1984375bf375eb6686d52ba10db6043a86634a5ccf90dcf",
+    "reference": "python:3.12-slim-bookworm@sha256:7753c33391fc9f01d1984375bf375eb6686d52ba10db6043a86634a5ccf90dcf"
+  },
+  {
+    "image": "node",
+    "tag": "22-alpine",
+    "digest": "sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402",
+    "reference": "node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402"
+  },
+  {
+    "image": "nginx",
+    "tag": "alpine",
+    "digest": "sha256:df221db836e1754089190208cee7eeda94f233197056426eda74a43ab1abeac2",
+    "reference": "nginx:alpine@sha256:df221db836e1754089190208cee7eeda94f233197056426eda74a43ab1abeac2"
+  },
+  {
+    "image": "postgres",
+    "tag": "17-alpine",
+    "digest": "sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24",
+    "reference": "postgres:17-alpine@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24"
+  },
+  {
+    "image": "axllent/mailpit",
+    "tag": "latest",
+    "digest": "sha256:b68349e3a014b90c5610bfb26b2ae36f3892d7b8cf25ee140c6c71c98d2fcf48",
+    "reference": "axllent/mailpit:latest@sha256:b68349e3a014b90c5610bfb26b2ae36f3892d7b8cf25ee140c6c71c98d2fcf48"
+  }
+]

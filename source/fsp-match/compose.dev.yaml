@@ -1,0 +1,48 @@
+services:
+  api:
+    environment:
+      ENVIRONMENT: development
+      APP_URL: http://localhost:${FSP_PORT:-8094}
+      ALLOWED_ORIGINS: http://localhost:${FSP_PORT:-8094},http://127.0.0.1:${FSP_PORT:-8094}
+      REGISTRATION_ENABLED: "true"
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+      SMTP_FROM: "КОД.МЭТЧ <demo@example.org>"
+      SMTP_TLS_MODE: "none"
+      SMTP_STARTTLS: "false"
+      SMTP_SSL: "false"
+      SMTP_USERNAME: ""
+      SMTP_PASSWORD: ""
+      MAX_BOT_TOKEN: ""
+      MAX_BOT_USERNAME: ""
+      MAX_WEBHOOK_SECRET: ""
+      TELEGRAM_BOT_TOKEN: ""
+      TELEGRAM_BOT_USERNAME: ""
+      TELEGRAM_WEBHOOK_SECRET: ""
+    depends_on:
+      mailpit: {condition: service_started}
+  worker:
+    environment:
+      ENVIRONMENT: development
+      APP_URL: http://localhost:${FSP_PORT:-8094}
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+      SMTP_FROM: "КОД.МЭТЧ <demo@example.org>"
+      SMTP_TLS_MODE: "none"
+      SMTP_STARTTLS: "false"
+      SMTP_SSL: "false"
+      SMTP_USERNAME: ""
+      SMTP_PASSWORD: ""
+      MAX_BOT_TOKEN: ""
+      MAX_BOT_USERNAME: ""
+      MAX_WEBHOOK_SECRET: ""
+      TELEGRAM_BOT_TOKEN: ""
+      TELEGRAM_BOT_USERNAME: ""
+      TELEGRAM_WEBHOOK_SECRET: ""
+  mailpit:
+    image: axllent/mailpit:latest@sha256:b68349e3a014b90c5610bfb26b2ae36f3892d7b8cf25ee140c6c71c98d2fcf48
+    restart: unless-stopped
+    ports: ["127.0.0.1:${FSP_MAILPIT_PORT:-8025}:8025"]
+    networks: [fsp_private]
+    mem_limit: 128m
+    cpus: 1

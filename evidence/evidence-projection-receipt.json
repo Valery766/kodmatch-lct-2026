@@ -1,0 +1,13 @@
+{
+  "created_at_utc": "2026-10-11T11:55:38.048215+00:00",
+  "purpose": "The source-manifest cites the complete owner-only PostgreSQL proof; the jury package contains a minimized public projection of that proof. This receipt links both hashes without publishing unrelated server service identities.",
+  "original_evidence_sha256": "db9fe1d81a1afcd04dc251dafa8b763a3461d427540e9b6762ed193b8e443cc0",
+  "public_evidence_path": "postgres-and-restore-final.json",
+  "public_evidence_sha256": "f6e2dec4a0579211525297c13c6b3e639bd2520d0a850ff0987a6d7a106412cd",
+  "transformation": "Removed previously_running_services identity list; replaced it with aggregate server_preservation_summary. All PostgreSQL checks and backup/restore facts remain identical.",
+  "removed_service_rows": 13,
+  "remaining_json_equal_after_projection": true,
+  "test_result": "3 PASS / 0 SKIP",
+  "restored_tables": 23,
+  "private_values_published": false
+}

@@ -1,0 +1,67 @@
+# КОД.МЭТЧ API v1
+
+Источник приложения: релиз `20261007T204413Z`; финальная исходная копия от 11.10.2026. Эти документальные уточнения не меняют backend-код.
+
+Все endpoints под `/api`, JSON UTF-8. ID – UUID string; epoch timestamps UTC. Роли `candidate`, `employer`; специализации `backend_python`, `frontend_ts`, `data_sql`; уровни `junior`, `middle`. Ошибки `{detail: string|object}` и HTTP 400/401/403/404/409/422/429. Чужой ID возвращает 404. Поля неизвестные схеме отвергаются.
+
+Сначала `GET /auth/me`: `{user:null|{id,email,role,email_verified,is_demo},csrf_token}`. При анонимном запросе выдаётся HttpOnly pre-auth cookie; после login серверная opaque session, HttpOnly, SameSite=Lax, Secure в production. **Каждый изменяющий запрос** содержит `X-CSRF-Token` из `/auth/me`/auth response; Origin сверяется. Cookie пересылается `credentials:include`. GET не меняет деловой статус.
+
+## Auth
+
+- `POST /auth/register {email,password,role,consent_version:"2026-10-06"}` → 201 `{message}`. Confirmation email отправляется через durable outbox/SMTP; token в API не возвращается.
+- `POST /auth/confirm-email {token}` → `{message}`; token одноразовый, срок 24h.
+- `POST /auth/login {email,password}` → auth/me shape. Неподтверждённый email:403.
+- `POST /auth/logout {}` → `{message}`; session revoked.
+- `POST /auth/forgot-password {email}` → generic `{message}` независимо от существования пользователя.
+- `POST /auth/resend-confirmation {email}` → generic `{message}`, заменяет истекший token для ещё неподтвержденного обычного аккаунта; синтетические demo не отправляют recovery/confirmation emails.
+- `POST /auth/reset-password {token,password}` → `{message}`; token1h/одноразовый, все sessions revoked.
+
+## Candidate
+
+- `GET /catalog` → `{specializations:[{id,label,grades}],grades:[...],work_formats:[...]}`.
+- `GET/PUT /candidate/profile` owner only. PUT: `{full_name,headline,bio,location,work_format,skills:string[],roles:string[],experience_years:number|null,soft_skills:string[],specialization,declared_grade,salary_min,salary_max,contacts:{phone,telegram,website},fsp_id,fsp_link,visible,consent_version}`. `roles` и `soft_skills`: до20 элементов, каждый1..80 символов; `experience_years`: конечное число0..60 либо null. Эти поля и declared skills – самоописание, проверенный grade не меняют. Salary nullable в профиле; contacts owner only. `contacts.telegram` сохраняется только для совместимости с прежними owner-данными; текущий интерфейс и выдача работодателю Telegram не предлагают. MAX связывается через integrations; поля `contacts.max` в этой схеме нет. Нельзя записать verified_grade/verified_skills. GET включает declared/verified, history, consent dates.
+- `POST /candidate/profile/import` multipart `file` PDF≤5MiB, без хранения оригинала → `{fields,warnings,provenance:"pdf_import",requires_confirmation:true,parser}`. Импорт ничего не публикует и не меняет verified fields.
+- `GET /candidate/profile/pdf` → application/pdf owner; employer uses `/candidates/{id}/pdf` permission; до grant экспорт без contacts.
+- `GET /candidate/survey` → `{survey:null|{specialization,declared_grade,answers,history_id,created_at}}`: последний сохранённый опрос текущего кандидата из его истории; другая роль получает403, чужие данные не возвращаются. Используется для восстановления анкеты после повторного открытия.
+- `POST /candidate/survey {specialization,declared_grade,answers:object}` → `{specialization,declared_grade,history_id}`.
+- `GET /candidate/history` → `{items:[{kind,created_at,payload}]}`.
+- `GET /candidate/fsp` → `{status:"synthetic_demo"|"not_linked"|"unverified",achievements:[],source,verified:false}`; `POST /candidate/fsp/sync {}` обновляет demo snapshot, не выдаёт внешнюю live verification.
+- `GET /assessments/catalog`; `POST /candidate/attempts {specialization,grade}` →201 `{id,form,status,expires_at}` (без oracle). Form отвечается доменом. Повтор start той же категории возвращает незавершённую попытку. Middle fail не блокирует добровольный Junior.
+- `GET /candidate/attempts` → `{items}`; `GET /candidate/attempts/{id}` owner-only; `POST /candidate/attempts/{id}/submit {answers:object}` → `{id,status,result,verified_grade,cooldown_until}`. Повтор submit идемпотентен; cooldown 90days для той же категории, прошлый verified не понижается.
+
+## Employer, bank and invitations
+
+- `GET/PUT /employer/company`: `{name,description,website,inn,contact_method}`; verification status `unverified`/`synthetic_demo`, юридическая проверка не имитируется.
+- `GET/POST /employer/needs`; `GET/PUT /employer/needs/{id}`. Need `{title,description,specialization,grade,required_skills:[],preferred_skills:[],salary_min:int,salary_max:int,work_format,location,require_fsp:bool}`. RUB min>0,max>=min обязательны. Зарплатная вилка отображается в рублях за месяц до вычета НДФЛ; отдельного gross/net-поля в payload нет.
+- `POST /employer/needs/parse {text}` → `{fields,warnings,parser,requires_confirmation:true}`; AI structured schema validated, fallback usable.
+- `GET /employer/needs/{id}/search` → `{items:[{id,profile,score,explanation}],formula_version}`. Сохраняется история search. Public profile исключает email/phone/telegram/full legal name/website/FSP ID. Human display name `Имя Ф.`; grant конкретной компании открывает contacts.
+- `POST /employer/needs/{need_id}/candidates/{candidate_id}/explanation {}` → `{source:"llm_grounded"|"deterministic_fallback",provenance:"llm_fact_selection"|"trusted_matching_rules",explanation:string[],selected_fact_ids:string[],facts:[{id,text}],warnings:string[],formula_version,score,changes_matching:false,cached:boolean}`. Только явный запрос работодателя, обычные CSRF/ownership; payload с дополнительными полями отклоняется. Candidate должен оставаться видимым, активным, с подтвержденным email и допуском в текущую подборку; чужая потребность/скрытый или неподходящий candidate:404, другая роль:403, измененное во время генерации evidence:409. GET search никогда не вызывает модель.
+- Пояснение LLM: модель выбирает порядок/подмножество из максимум пяти серверных fact IDs. Она получает только фиксированные категории и числовые matching facts, без ФИО/контактов/UUID/FSP ID/сырого профиля/текста потребности. Все отображаемые предложения рендерит сервер; модельный свободный текст, новые факты, scores/grade отвергаются. Ограничения coverage/неизвестных навыков/зарплаты, synthetic FSP и смысл индекса всегда остаются. Source `llm_grounded` означает выбор фактов моделью, не независимое подтверждение квалификации.
+- Budget: need parse + uncached explanation делят **20 некешированных AI-действий на employer-user за3600s**; истощение:429 с Retry-After. Счетчик включает unavailable/busy/fallback действия; actual upstream calls не больше этого бюджета. Shared concurrency по умолчанию2 (1–16), total wall timeout12s (1–120). Это кодовые defaults; проверенный deployment релиза 20261007T204413Z использует один concurrent inference и deadline35s. Cache на процесс: максимум256entries, current company/need/candidate/evidence+provider key; success/missing config600s, transient fallback30s. Cache hit повторно проверяет текущие доступ/данные и не вызывает upstream/не расходует новый budget. Это ограниченный best-effort cache, не distributed/exactly-once guarantee. Недоступная/неподключенная модель, upstream429/timeout, invalid JSON/IDs/prose, redirect/compression/oversized response → детерминированный fallback. После upstream IO повторно проверяются скрытие/disable/ownership и fingerprint.
+- Model contract: OpenAI-compatible base URL с нужным `/v1` prefix, сервер добавляет `/chat/completions`, Bearer auth, `response_format:{type:"json_object"}`, temperature0/max_tokens1600. Ответ envelope `choices[0].message.content` содержит JSON-строку. JSON body ограничен100000bytes при streaming read, content16000chars; redirects/compressed bodies не принимаются. На релизе 20261007T204413Z локальная Qwen3 4B Instruct 2507 Q4_K_M подключена через приватный Ollama. Actual need parse (`llm_structured`) и explanation (`llm_grounded`) подтверждены отдельным внешними датированными доказательствами live-приёмки в `../../../evidence/`; MockTransport tests остаются отдельной технической проверкой и не заменяют live evidence.
+- `GET /employer/search-history` → `{items}`; `POST /employer/shortlist {need_id,candidate_id}` и `DELETE /employer/shortlist/{id}`; `GET /employer/shortlist`.
+- `GET /employer/candidates?specialization=...&grade=...&skill=...&fsp=true&page=1&page_size=12` → весь видимый банк с SQL-фильтрацией до пагинации `{items:[profile],total,page,pages,page_size,filter_evidence}`. `page>=1`, `page_size=1..100` (default12), порядок стабилен по UserID. `fsp` отсутствует – все, true – с достижениями, false – без. Фильтры grade/skill используют подтверждённое evidence; declared skills не участвуют. Профиль без подтвержденной категории имеет `category:not_verified`; search-рекомендация требует проверенную категорию. Контакты проецируются отдельно по текущему разрешению своей компании.
+- `GET /candidates/{id}` → sanitized profile employer-only; `GET /candidates/{id}/pdf` → sanitized/full согласно grant.
+- `POST /employer/invitations {need_id,candidate_id,message,contact_method,salary_min,salary_max}` →201 invitation; vacancy не требуется. Уникальный need+candidate делает retry идемпотентным. Не подтверждённая компания сохраняет явный badge.
+- `GET /employer/invitations`, `GET /candidate/invitations` → `{items}`. До accept скрыты контакты candidate; видны company, description, salary RUB, contact method.
+- `POST /candidate/invitations/{id}/view {}` → viewed (sent→viewed); `POST /candidate/invitations/{id}/respond {decision:"accepted"|"rejected"}`. Только accepted открывает contacts этой company. Терминальный статус не меняется повторным противоречащим решением.
+- `GET /candidate/contact-grants` → `{items:[{id,company_id,company_name,source,created_at,revoked_at}]}`; `DELETE /candidate/contact-grants/{identifier}` отзывает собственное разрешение, чужое возвращает404. После отзыва новые JSON/PDF-проекции снова скрывают contacts. Уже законно полученные и сохраненные копии этим действием не уничтожаются.
+
+## Own vacancies, responses, microtasks
+
+- `GET /vacancies` authenticated bank; `GET /vacancies/{id}`; `POST /employer/vacancies`, `PUT/DELETE /employer/vacancies/{id}`. Payload need fields + `published:bool`; DELETE закрывает и сохраняет историю.
+- `POST /candidate/vacancies/{id}/respond {message}` →201 response, явный собственный response даёт contact grant только company-владельцу. `GET /candidate/responses`, `GET /employer/responses`.
+- `GET /microtasks` → `{items}`; `POST /employer/microtasks {title,description,specialization,grade,expected_answer,due_at?}`; ожидаемый ответ не уходит candidate. `POST /candidate/microtasks/{id}/submit {answer}` → `{id,score,feedback,changes_verified_grade:false}`; повторное участие сохраняет самостоятельные строки истории. employer sees only own task attempts with sanitized/granted profiles. `GET /candidate/microtask-history`, `GET /employer/microtasks`.
+
+## Notifications and integrations
+
+- `GET /notifications` → `{items:[{id,kind,payload,created_at,read_at}]}`; `POST /notifications/{id}/read {}`.
+- `GET /integrations/status` → statuses без secrets. `POST /integrations/messenger/link-code {platform:"max"}` → `{code,expires_at,platform,url,instruction}`; код одноразовый600s. Поддерживаемый активный мессенджер – MAX. Root messenger router consumes signed platform proof and links user.
+- `POST /feedback/report {subject_type,subject_id,reason}` →201; report owner recorded, company pause is operator action.
+- `GET /health` cheap liveness; `GET /ready` database; `GET /version` build/formula versions.
+
+Outbox ORM contract: `id,user_id,channel,kind,payload,status,attempts,next_attempt_at,last_error,external_id,created_at`. Активные каналы доставки `email`, `max`; исторические значения и строковое поле ORM не означают активную поддержку другого транспорта; notifications payload не содержит candidate contacts. Worker calls `app.integrations.messengers.deliver(platform,recipient_id,payload,settings)` → `{delivered,external_id?,retry_after?,error?}`. Missing configuration marks retry/unavailable, delivery failure never mutates invitation/contact state. Mail payload содержит token только в DB, owner API/log не возвращает его. Worker SMTP does actual send; Mailpit local endpoint проверяется отдельно от реального внешнего ящика.
+
+SMTP sender/reply: публичный handoff `EMAIL_FROM`/`EMAIL_REPLY_TO` отображается конфигурацией запуска в `SMTP_FROM`/`SMTP_REPLY_TO`. Reply-To – один bare mailbox; пустое значение не добавляет пустой header. Control characters/CRLF/multiple addresses/display-name input отвергаются до SMTP; Reply-To не меняет получателя или From. SSL/STARTTLS используют trusted default CA. Реальная внешняя доставка требует approved provider/sender/operator и отдельной фактической проверки.
+
+Demo seed accounts only with explicit `SEED_DEMO=true`, addresses `candidate@demo.example.com`, `employer@demo.example.com`, `second@demo.example.com`; passwords через DEMO_PASSWORD setting. Seed labeled synthetic in profile/company/FSP; production регистрация независимо требует письмо. Public `GET /catalog` включает `registration_enabled,demo_mode,legal_operator:{configured,name,contact},consent_version`. Production cookies: `__Host-fsp_session`, `__Host-fsp_preauth`; ordinary login SameSite=Lax, только validated signed messenger launch устанавливает Secure SameSite=None для Mini App.

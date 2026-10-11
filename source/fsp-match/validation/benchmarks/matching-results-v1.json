@@ -1,0 +1,1665 @@
+{
+  "benchmark_version": "matching-fixture-1.0.0",
+  "matching_version": "matching-1.0.0",
+  "fixture_sha256": "084c88eaa16e166f824a57a5f7c5233b33e77ab8ce3b2d1e2f1e8d8d6162beea",
+  "candidate_count": 40,
+  "need_count": 12,
+  "labeled_pairs": 480,
+  "gold_provenance": {
+    "type": "authored_synthetic",
+    "labels_source": "manual_business_judgments_before_evaluator",
+    "independent_human_review": "PENDING",
+    "grade_2": "Доказанные обязательные навыки и совместимые условия",
+    "grade_1": "Требуется дополнительная проверка навыка; можно показать как gap",
+    "grade_0": "Критически не соответствует либо скрыт/неподтвержден",
+    "frozen_before_evaluation": true
+  },
+  "human_validation": "NOT_CONDUCTED",
+  "status": "SYNTHETIC_COMPUTATION_COMPLETED_NOT_EXTERNAL_VALIDATION",
+  "modes": {
+    "evidence": {
+      "development": {
+        "at_5": {
+          "k": 5,
+          "queries": [
+            {
+              "need_id": "b-payments",
+              "returned": 5,
+              "precision_at_k": 1.0,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b01",
+                "b02",
+                "b14",
+                "b06",
+                "b03"
+              ]
+            },
+            {
+              "need_id": "b-junior",
+              "returned": 5,
+              "precision_at_k": 1.0,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 0.9125299483251055,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b01",
+                "b02",
+                "b14",
+                "b04",
+                "b10"
+              ]
+            },
+            {
+              "need_id": "f-async",
+              "returned": 5,
+              "precision_at_k": 1.0,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "f01",
+                "f02",
+                "f13",
+                "f03",
+                "f08"
+              ]
+            },
+            {
+              "need_id": "f-junior",
+              "returned": 5,
+              "precision_at_k": 1.0,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "f01",
+                "f02",
+                "f03",
+                "f13",
+                "f09"
+              ]
+            },
+            {
+              "need_id": "d-aggregate",
+              "returned": 5,
+              "precision_at_k": 1.0,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d01",
+                "d02",
+                "d13",
+                "d03",
+                "d08"
+              ]
+            },
+            {
+              "need_id": "d-junior",
+              "returned": 5,
+              "precision_at_k": 1.0,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d01",
+                "d02",
+                "d03",
+                "d13",
+                "d04"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 1.0,
+          "macro_precision_of_returned": 1.0,
+          "macro_ndcg_at_k": 0.9854,
+          "critical_mismatches_in_top_k": 0,
+          "queries_without_positive_gold": 0,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        },
+        "at_10": {
+          "k": 10,
+          "queries": [
+            {
+              "need_id": "b-payments",
+              "returned": 6,
+              "precision_at_k": 0.6,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b01",
+                "b02",
+                "b14",
+                "b06",
+                "b03",
+                "b09"
+              ]
+            },
+            {
+              "need_id": "b-junior",
+              "returned": 9,
+              "precision_at_k": 0.9,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 0.9901472154717503,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b01",
+                "b02",
+                "b14",
+                "b04",
+                "b10",
+                "b12",
+                "b06",
+                "b03",
+                "b09"
+              ]
+            },
+            {
+              "need_id": "f-async",
+              "returned": 5,
+              "precision_at_k": 0.5,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "f01",
+                "f02",
+                "f13",
+                "f03",
+                "f08"
+              ]
+            },
+            {
+              "need_id": "f-junior",
+              "returned": 8,
+              "precision_at_k": 0.8,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "f01",
+                "f02",
+                "f03",
+                "f13",
+                "f09",
+                "f04",
+                "f08",
+                "f11"
+              ]
+            },
+            {
+              "need_id": "d-aggregate",
+              "returned": 5,
+              "precision_at_k": 0.5,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d01",
+                "d02",
+                "d13",
+                "d03",
+                "d08"
+              ]
+            },
+            {
+              "need_id": "d-junior",
+              "returned": 7,
+              "precision_at_k": 0.7,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d01",
+                "d02",
+                "d03",
+                "d13",
+                "d04",
+                "d08",
+                "d11"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 0.6667,
+          "macro_precision_of_returned": 1.0,
+          "macro_ndcg_at_k": 0.9984,
+          "critical_mismatches_in_top_k": 0,
+          "queries_without_positive_gold": 0,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        }
+      },
+      "holdout": {
+        "at_5": {
+          "k": 5,
+          "queries": [
+            {
+              "need_id": "b-office",
+              "returned": 1,
+              "precision_at_k": 0.2,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b13"
+              ]
+            },
+            {
+              "need_id": "b-full",
+              "returned": 4,
+              "precision_at_k": 0.8,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b01",
+                "b02",
+                "b14",
+                "b06"
+              ]
+            },
+            {
+              "need_id": "f-office",
+              "returned": 1,
+              "precision_at_k": 0.2,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "f06"
+              ]
+            },
+            {
+              "need_id": "f-unmeasured",
+              "returned": 0,
+              "precision_at_k": 0.0,
+              "precision_of_returned": null,
+              "ndcg_at_k": null,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": []
+            },
+            {
+              "need_id": "d-office",
+              "returned": 1,
+              "precision_at_k": 0.2,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d06"
+              ]
+            },
+            {
+              "need_id": "d-full",
+              "returned": 3,
+              "precision_at_k": 0.6,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d01",
+                "d02",
+                "d13"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 0.3333,
+          "macro_precision_of_returned": 1.0,
+          "macro_ndcg_at_k": 1.0,
+          "critical_mismatches_in_top_k": 0,
+          "queries_without_positive_gold": 1,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        },
+        "at_10": {
+          "k": 10,
+          "queries": [
+            {
+              "need_id": "b-office",
+              "returned": 1,
+              "precision_at_k": 0.1,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b13"
+              ]
+            },
+            {
+              "need_id": "b-full",
+              "returned": 4,
+              "precision_at_k": 0.4,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b01",
+                "b02",
+                "b14",
+                "b06"
+              ]
+            },
+            {
+              "need_id": "f-office",
+              "returned": 1,
+              "precision_at_k": 0.1,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "f06"
+              ]
+            },
+            {
+              "need_id": "f-unmeasured",
+              "returned": 0,
+              "precision_at_k": 0.0,
+              "precision_of_returned": null,
+              "ndcg_at_k": null,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": []
+            },
+            {
+              "need_id": "d-office",
+              "returned": 1,
+              "precision_at_k": 0.1,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d06"
+              ]
+            },
+            {
+              "need_id": "d-full",
+              "returned": 3,
+              "precision_at_k": 0.3,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d01",
+                "d02",
+                "d13"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 0.1667,
+          "macro_precision_of_returned": 1.0,
+          "macro_ndcg_at_k": 1.0,
+          "critical_mismatches_in_top_k": 0,
+          "queries_without_positive_gold": 1,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        }
+      }
+    },
+    "keyword_baseline": {
+      "development": {
+        "at_5": {
+          "k": 5,
+          "queries": [
+            {
+              "need_id": "b-payments",
+              "returned": 5,
+              "precision_at_k": 0.8,
+              "precision_of_returned": 0.8,
+              "ndcg_at_k": 0.660839794726384,
+              "critical_mismatches_in_top_k": 1,
+              "profile_ids": [
+                "b05",
+                "b01",
+                "b02",
+                "b03",
+                "b06"
+              ]
+            },
+            {
+              "need_id": "b-junior",
+              "returned": 5,
+              "precision_at_k": 0.8,
+              "precision_of_returned": 0.8,
+              "ndcg_at_k": 0.5634608948312463,
+              "critical_mismatches_in_top_k": 1,
+              "profile_ids": [
+                "b05",
+                "b01",
+                "b02",
+                "b03",
+                "b06"
+              ]
+            },
+            {
+              "need_id": "f-async",
+              "returned": 5,
+              "precision_at_k": 0.6,
+              "precision_of_returned": 0.6,
+              "ndcg_at_k": 0.5302769568308306,
+              "critical_mismatches_in_top_k": 2,
+              "profile_ids": [
+                "f05",
+                "f01",
+                "f02",
+                "f03",
+                "f06"
+              ]
+            },
+            {
+              "need_id": "f-junior",
+              "returned": 5,
+              "precision_at_k": 0.6,
+              "precision_of_returned": 0.6,
+              "ndcg_at_k": 0.5296347172140421,
+              "critical_mismatches_in_top_k": 2,
+              "profile_ids": [
+                "f05",
+                "f01",
+                "f02",
+                "f03",
+                "f06"
+              ]
+            },
+            {
+              "need_id": "d-aggregate",
+              "returned": 5,
+              "precision_at_k": 0.6,
+              "precision_of_returned": 0.6,
+              "ndcg_at_k": 0.5302769568308306,
+              "critical_mismatches_in_top_k": 2,
+              "profile_ids": [
+                "d05",
+                "d01",
+                "d02",
+                "d03",
+                "d06"
+              ]
+            },
+            {
+              "need_id": "d-junior",
+              "returned": 5,
+              "precision_at_k": 0.6,
+              "precision_of_returned": 0.6,
+              "ndcg_at_k": 0.5296347172140421,
+              "critical_mismatches_in_top_k": 2,
+              "profile_ids": [
+                "d05",
+                "d01",
+                "d02",
+                "d03",
+                "d06"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 0.6667,
+          "macro_precision_of_returned": 0.6667,
+          "macro_ndcg_at_k": 0.5574,
+          "critical_mismatches_in_top_k": 10,
+          "queries_without_positive_gold": 0,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        },
+        "at_10": {
+          "k": 10,
+          "queries": [
+            {
+              "need_id": "b-payments",
+              "returned": 10,
+              "precision_at_k": 0.5,
+              "precision_of_returned": 0.5,
+              "ndcg_at_k": 0.6695414473598555,
+              "critical_mismatches_in_top_k": 5,
+              "profile_ids": [
+                "b05",
+                "b01",
+                "b02",
+                "b03",
+                "b06",
+                "b07",
+                "b08",
+                "b09",
+                "b10",
+                "b13"
+              ]
+            },
+            {
+              "need_id": "b-junior",
+              "returned": 10,
+              "precision_at_k": 0.6,
+              "precision_of_returned": 0.6,
+              "ndcg_at_k": 0.5155199037271067,
+              "critical_mismatches_in_top_k": 4,
+              "profile_ids": [
+                "b05",
+                "b01",
+                "b02",
+                "b03",
+                "b06",
+                "b07",
+                "b08",
+                "b09",
+                "b10",
+                "b13"
+              ]
+            },
+            {
+              "need_id": "f-async",
+              "returned": 10,
+              "precision_at_k": 0.5,
+              "precision_of_returned": 0.5,
+              "ndcg_at_k": 0.6967783105926808,
+              "critical_mismatches_in_top_k": 5,
+              "profile_ids": [
+                "f05",
+                "f01",
+                "f02",
+                "f03",
+                "f06",
+                "f07",
+                "f08",
+                "f09",
+                "f12",
+                "f13"
+              ]
+            },
+            {
+              "need_id": "f-junior",
+              "returned": 10,
+              "precision_at_k": 0.6,
+              "precision_of_returned": 0.6,
+              "ndcg_at_k": 0.6467738890313892,
+              "critical_mismatches_in_top_k": 4,
+              "profile_ids": [
+                "f05",
+                "f01",
+                "f02",
+                "f03",
+                "f06",
+                "f07",
+                "f08",
+                "f09",
+                "f12",
+                "f13"
+              ]
+            },
+            {
+              "need_id": "d-aggregate",
+              "returned": 10,
+              "precision_at_k": 0.5,
+              "precision_of_returned": 0.5,
+              "ndcg_at_k": 0.6967783105926808,
+              "critical_mismatches_in_top_k": 5,
+              "profile_ids": [
+                "d05",
+                "d01",
+                "d02",
+                "d03",
+                "d06",
+                "d07",
+                "d08",
+                "d09",
+                "d12",
+                "d13"
+              ]
+            },
+            {
+              "need_id": "d-junior",
+              "returned": 10,
+              "precision_at_k": 0.5,
+              "precision_of_returned": 0.5,
+              "ndcg_at_k": 0.6172414721440875,
+              "critical_mismatches_in_top_k": 5,
+              "profile_ids": [
+                "d05",
+                "d01",
+                "d02",
+                "d03",
+                "d06",
+                "d07",
+                "d08",
+                "d09",
+                "d12",
+                "d13"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 0.5333,
+          "macro_precision_of_returned": 0.5333,
+          "macro_ndcg_at_k": 0.6404,
+          "critical_mismatches_in_top_k": 28,
+          "queries_without_positive_gold": 0,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        }
+      },
+      "holdout": {
+        "at_5": {
+          "k": 5,
+          "queries": [
+            {
+              "need_id": "b-office",
+              "returned": 5,
+              "precision_at_k": 0.0,
+              "precision_of_returned": 0.0,
+              "ndcg_at_k": 0.0,
+              "critical_mismatches_in_top_k": 5,
+              "profile_ids": [
+                "b05",
+                "b01",
+                "b02",
+                "b03",
+                "b06"
+              ]
+            },
+            {
+              "need_id": "b-full",
+              "returned": 5,
+              "precision_at_k": 0.6,
+              "precision_of_returned": 0.6,
+              "ndcg_at_k": 0.592512031964586,
+              "critical_mismatches_in_top_k": 2,
+              "profile_ids": [
+                "b05",
+                "b01",
+                "b02",
+                "b03",
+                "b06"
+              ]
+            },
+            {
+              "need_id": "f-office",
+              "returned": 5,
+              "precision_at_k": 0.2,
+              "precision_of_returned": 0.2,
+              "ndcg_at_k": 0.38685280723454163,
+              "critical_mismatches_in_top_k": 4,
+              "profile_ids": [
+                "f05",
+                "f01",
+                "f02",
+                "f03",
+                "f06"
+              ]
+            },
+            {
+              "need_id": "f-unmeasured",
+              "returned": 5,
+              "precision_at_k": 0.0,
+              "precision_of_returned": 0.0,
+              "ndcg_at_k": null,
+              "critical_mismatches_in_top_k": 5,
+              "profile_ids": [
+                "f05",
+                "f01",
+                "f02",
+                "f03",
+                "f06"
+              ]
+            },
+            {
+              "need_id": "d-office",
+              "returned": 5,
+              "precision_at_k": 0.2,
+              "precision_of_returned": 0.2,
+              "ndcg_at_k": 0.38685280723454163,
+              "critical_mismatches_in_top_k": 4,
+              "profile_ids": [
+                "d05",
+                "d01",
+                "d02",
+                "d03",
+                "d06"
+              ]
+            },
+            {
+              "need_id": "d-full",
+              "returned": 5,
+              "precision_at_k": 0.4,
+              "precision_of_returned": 0.4,
+              "ndcg_at_k": 0.5307212739772436,
+              "critical_mismatches_in_top_k": 3,
+              "profile_ids": [
+                "d05",
+                "d01",
+                "d02",
+                "d03",
+                "d06"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 0.2333,
+          "macro_precision_of_returned": 0.2333,
+          "macro_ndcg_at_k": 0.3794,
+          "critical_mismatches_in_top_k": 23,
+          "queries_without_positive_gold": 1,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        },
+        "at_10": {
+          "k": 10,
+          "queries": [
+            {
+              "need_id": "b-office",
+              "returned": 10,
+              "precision_at_k": 0.1,
+              "precision_of_returned": 0.1,
+              "ndcg_at_k": 0.2890648263178878,
+              "critical_mismatches_in_top_k": 9,
+              "profile_ids": [
+                "b05",
+                "b01",
+                "b02",
+                "b03",
+                "b06",
+                "b07",
+                "b08",
+                "b09",
+                "b10",
+                "b13"
+              ]
+            },
+            {
+              "need_id": "b-full",
+              "returned": 10,
+              "precision_at_k": 0.3,
+              "precision_of_returned": 0.3,
+              "ndcg_at_k": 0.592512031964586,
+              "critical_mismatches_in_top_k": 7,
+              "profile_ids": [
+                "b05",
+                "b01",
+                "b02",
+                "b03",
+                "b06",
+                "b07",
+                "b08",
+                "b09",
+                "b10",
+                "b13"
+              ]
+            },
+            {
+              "need_id": "f-office",
+              "returned": 10,
+              "precision_at_k": 0.1,
+              "precision_of_returned": 0.1,
+              "ndcg_at_k": 0.38685280723454163,
+              "critical_mismatches_in_top_k": 9,
+              "profile_ids": [
+                "f05",
+                "f01",
+                "f02",
+                "f03",
+                "f06",
+                "f07",
+                "f08",
+                "f09",
+                "f12",
+                "f13"
+              ]
+            },
+            {
+              "need_id": "f-unmeasured",
+              "returned": 10,
+              "precision_at_k": 0.0,
+              "precision_of_returned": 0.0,
+              "ndcg_at_k": null,
+              "critical_mismatches_in_top_k": 10,
+              "profile_ids": [
+                "f05",
+                "f01",
+                "f02",
+                "f03",
+                "f06",
+                "f07",
+                "f08",
+                "f09",
+                "f12",
+                "f13"
+              ]
+            },
+            {
+              "need_id": "d-office",
+              "returned": 10,
+              "precision_at_k": 0.1,
+              "precision_of_returned": 0.1,
+              "ndcg_at_k": 0.38685280723454163,
+              "critical_mismatches_in_top_k": 9,
+              "profile_ids": [
+                "d05",
+                "d01",
+                "d02",
+                "d03",
+                "d06",
+                "d07",
+                "d08",
+                "d09",
+                "d12",
+                "d13"
+              ]
+            },
+            {
+              "need_id": "d-full",
+              "returned": 10,
+              "precision_at_k": 0.3,
+              "precision_of_returned": 0.3,
+              "ndcg_at_k": 0.6663732474096913,
+              "critical_mismatches_in_top_k": 7,
+              "profile_ids": [
+                "d05",
+                "d01",
+                "d02",
+                "d03",
+                "d06",
+                "d07",
+                "d08",
+                "d09",
+                "d12",
+                "d13"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 0.15,
+          "macro_precision_of_returned": 0.15,
+          "macro_ndcg_at_k": 0.4643,
+          "critical_mismatches_in_top_k": 51,
+          "queries_without_positive_gold": 1,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        }
+      }
+    },
+    "without_fsp": {
+      "development": {
+        "at_5": {
+          "k": 5,
+          "queries": [
+            {
+              "need_id": "b-payments",
+              "returned": 5,
+              "precision_at_k": 1.0,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b01",
+                "b14",
+                "b06",
+                "b02",
+                "b03"
+              ]
+            },
+            {
+              "need_id": "b-junior",
+              "returned": 5,
+              "precision_at_k": 1.0,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 0.9026211001048624,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b01",
+                "b14",
+                "b04",
+                "b10",
+                "b12"
+              ]
+            },
+            {
+              "need_id": "f-async",
+              "returned": 5,
+              "precision_at_k": 1.0,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "f01",
+                "f13",
+                "f02",
+                "f03",
+                "f08"
+              ]
+            },
+            {
+              "need_id": "f-junior",
+              "returned": 5,
+              "precision_at_k": 1.0,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "f01",
+                "f03",
+                "f13",
+                "f09",
+                "f04"
+              ]
+            },
+            {
+              "need_id": "d-aggregate",
+              "returned": 5,
+              "precision_at_k": 1.0,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d01",
+                "d13",
+                "d02",
+                "d03",
+                "d08"
+              ]
+            },
+            {
+              "need_id": "d-junior",
+              "returned": 5,
+              "precision_at_k": 1.0,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d01",
+                "d03",
+                "d13",
+                "d04",
+                "d02"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 1.0,
+          "macro_precision_of_returned": 1.0,
+          "macro_ndcg_at_k": 0.9838,
+          "critical_mismatches_in_top_k": 0,
+          "queries_without_positive_gold": 0,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        },
+        "at_10": {
+          "k": 10,
+          "queries": [
+            {
+              "need_id": "b-payments",
+              "returned": 6,
+              "precision_at_k": 0.6,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b01",
+                "b14",
+                "b06",
+                "b02",
+                "b03",
+                "b09"
+              ]
+            },
+            {
+              "need_id": "b-junior",
+              "returned": 9,
+              "precision_at_k": 0.9,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 0.9820793862731312,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b01",
+                "b14",
+                "b04",
+                "b10",
+                "b12",
+                "b06",
+                "b02",
+                "b03",
+                "b09"
+              ]
+            },
+            {
+              "need_id": "f-async",
+              "returned": 5,
+              "precision_at_k": 0.5,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "f01",
+                "f13",
+                "f02",
+                "f03",
+                "f08"
+              ]
+            },
+            {
+              "need_id": "f-junior",
+              "returned": 8,
+              "precision_at_k": 0.8,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "f01",
+                "f03",
+                "f13",
+                "f09",
+                "f04",
+                "f02",
+                "f08",
+                "f11"
+              ]
+            },
+            {
+              "need_id": "d-aggregate",
+              "returned": 5,
+              "precision_at_k": 0.5,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d01",
+                "d13",
+                "d02",
+                "d03",
+                "d08"
+              ]
+            },
+            {
+              "need_id": "d-junior",
+              "returned": 7,
+              "precision_at_k": 0.7,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d01",
+                "d03",
+                "d13",
+                "d04",
+                "d02",
+                "d08",
+                "d11"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 0.6667,
+          "macro_precision_of_returned": 1.0,
+          "macro_ndcg_at_k": 0.997,
+          "critical_mismatches_in_top_k": 0,
+          "queries_without_positive_gold": 0,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        }
+      },
+      "holdout": {
+        "at_5": {
+          "k": 5,
+          "queries": [
+            {
+              "need_id": "b-office",
+              "returned": 1,
+              "precision_at_k": 0.2,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b13"
+              ]
+            },
+            {
+              "need_id": "b-full",
+              "returned": 4,
+              "precision_at_k": 0.8,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b01",
+                "b14",
+                "b06",
+                "b02"
+              ]
+            },
+            {
+              "need_id": "f-office",
+              "returned": 1,
+              "precision_at_k": 0.2,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "f06"
+              ]
+            },
+            {
+              "need_id": "f-unmeasured",
+              "returned": 0,
+              "precision_at_k": 0.0,
+              "precision_of_returned": null,
+              "ndcg_at_k": null,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": []
+            },
+            {
+              "need_id": "d-office",
+              "returned": 1,
+              "precision_at_k": 0.2,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d06"
+              ]
+            },
+            {
+              "need_id": "d-full",
+              "returned": 3,
+              "precision_at_k": 0.6,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d01",
+                "d13",
+                "d02"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 0.3333,
+          "macro_precision_of_returned": 1.0,
+          "macro_ndcg_at_k": 1.0,
+          "critical_mismatches_in_top_k": 0,
+          "queries_without_positive_gold": 1,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        },
+        "at_10": {
+          "k": 10,
+          "queries": [
+            {
+              "need_id": "b-office",
+              "returned": 1,
+              "precision_at_k": 0.1,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b13"
+              ]
+            },
+            {
+              "need_id": "b-full",
+              "returned": 4,
+              "precision_at_k": 0.4,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b01",
+                "b14",
+                "b06",
+                "b02"
+              ]
+            },
+            {
+              "need_id": "f-office",
+              "returned": 1,
+              "precision_at_k": 0.1,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "f06"
+              ]
+            },
+            {
+              "need_id": "f-unmeasured",
+              "returned": 0,
+              "precision_at_k": 0.0,
+              "precision_of_returned": null,
+              "ndcg_at_k": null,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": []
+            },
+            {
+              "need_id": "d-office",
+              "returned": 1,
+              "precision_at_k": 0.1,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d06"
+              ]
+            },
+            {
+              "need_id": "d-full",
+              "returned": 3,
+              "precision_at_k": 0.3,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d01",
+                "d13",
+                "d02"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 0.1667,
+          "macro_precision_of_returned": 1.0,
+          "macro_ndcg_at_k": 1.0,
+          "critical_mismatches_in_top_k": 0,
+          "queries_without_positive_gold": 1,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        }
+      }
+    },
+    "without_assessment": {
+      "development": {
+        "at_5": {
+          "k": 5,
+          "queries": [
+            {
+              "need_id": "b-payments",
+              "returned": 5,
+              "precision_at_k": 0.8,
+              "precision_of_returned": 0.8,
+              "ndcg_at_k": 0.8539316501572936,
+              "critical_mismatches_in_top_k": 1,
+              "profile_ids": [
+                "b02",
+                "b01",
+                "b03",
+                "b05",
+                "b06"
+              ]
+            },
+            {
+              "need_id": "b-junior",
+              "returned": 5,
+              "precision_at_k": 0.8,
+              "precision_of_returned": 0.8,
+              "ndcg_at_k": 0.7557415207297863,
+              "critical_mismatches_in_top_k": 1,
+              "profile_ids": [
+                "b02",
+                "b01",
+                "b03",
+                "b04",
+                "b05"
+              ]
+            },
+            {
+              "need_id": "f-async",
+              "returned": 5,
+              "precision_at_k": 0.8,
+              "precision_of_returned": 0.8,
+              "ndcg_at_k": 0.8015792876461758,
+              "critical_mismatches_in_top_k": 1,
+              "profile_ids": [
+                "f02",
+                "f01",
+                "f03",
+                "f05",
+                "f08"
+              ]
+            },
+            {
+              "need_id": "f-junior",
+              "returned": 5,
+              "precision_at_k": 0.8,
+              "precision_of_returned": 0.8,
+              "ndcg_at_k": 0.8687949224876583,
+              "critical_mismatches_in_top_k": 1,
+              "profile_ids": [
+                "f02",
+                "f01",
+                "f03",
+                "f04",
+                "f05"
+              ]
+            },
+            {
+              "need_id": "d-aggregate",
+              "returned": 5,
+              "precision_at_k": 0.8,
+              "precision_of_returned": 0.8,
+              "ndcg_at_k": 0.8015792876461758,
+              "critical_mismatches_in_top_k": 1,
+              "profile_ids": [
+                "d02",
+                "d01",
+                "d03",
+                "d05",
+                "d08"
+              ]
+            },
+            {
+              "need_id": "d-junior",
+              "returned": 5,
+              "precision_at_k": 0.8,
+              "precision_of_returned": 0.8,
+              "ndcg_at_k": 0.8687949224876583,
+              "critical_mismatches_in_top_k": 1,
+              "profile_ids": [
+                "d02",
+                "d01",
+                "d03",
+                "d04",
+                "d05"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 0.8,
+          "macro_precision_of_returned": 0.8,
+          "macro_ndcg_at_k": 0.8251,
+          "critical_mismatches_in_top_k": 6,
+          "queries_without_positive_gold": 0,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        },
+        "at_10": {
+          "k": 10,
+          "queries": [
+            {
+              "need_id": "b-payments",
+              "returned": 8,
+              "precision_at_k": 0.6,
+              "precision_of_returned": 0.75,
+              "ndcg_at_k": 0.9624374430056286,
+              "critical_mismatches_in_top_k": 2,
+              "profile_ids": [
+                "b02",
+                "b01",
+                "b03",
+                "b05",
+                "b06",
+                "b09",
+                "b10",
+                "b14"
+              ]
+            },
+            {
+              "need_id": "b-junior",
+              "returned": 10,
+              "precision_at_k": 0.9,
+              "precision_of_returned": 0.9,
+              "ndcg_at_k": 0.9363664440212786,
+              "critical_mismatches_in_top_k": 1,
+              "profile_ids": [
+                "b02",
+                "b01",
+                "b03",
+                "b04",
+                "b05",
+                "b06",
+                "b09",
+                "b10",
+                "b12",
+                "b14"
+              ]
+            },
+            {
+              "need_id": "f-async",
+              "returned": 7,
+              "precision_at_k": 0.5,
+              "precision_of_returned": 0.7142857142857143,
+              "ndcg_at_k": 0.9402694138204842,
+              "critical_mismatches_in_top_k": 2,
+              "profile_ids": [
+                "f02",
+                "f01",
+                "f03",
+                "f05",
+                "f08",
+                "f09",
+                "f13"
+              ]
+            },
+            {
+              "need_id": "f-junior",
+              "returned": 9,
+              "precision_at_k": 0.8,
+              "precision_of_returned": 0.8888888888888888,
+              "ndcg_at_k": 0.9712939538093602,
+              "critical_mismatches_in_top_k": 1,
+              "profile_ids": [
+                "f02",
+                "f01",
+                "f03",
+                "f04",
+                "f05",
+                "f08",
+                "f09",
+                "f11",
+                "f13"
+              ]
+            },
+            {
+              "need_id": "d-aggregate",
+              "returned": 7,
+              "precision_at_k": 0.5,
+              "precision_of_returned": 0.7142857142857143,
+              "ndcg_at_k": 0.9402694138204842,
+              "critical_mismatches_in_top_k": 2,
+              "profile_ids": [
+                "d02",
+                "d01",
+                "d03",
+                "d05",
+                "d08",
+                "d09",
+                "d13"
+              ]
+            },
+            {
+              "need_id": "d-junior",
+              "returned": 9,
+              "precision_at_k": 0.7,
+              "precision_of_returned": 0.7777777777777778,
+              "ndcg_at_k": 0.9711233075304032,
+              "critical_mismatches_in_top_k": 2,
+              "profile_ids": [
+                "d02",
+                "d01",
+                "d03",
+                "d04",
+                "d05",
+                "d08",
+                "d09",
+                "d11",
+                "d13"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 0.6667,
+          "macro_precision_of_returned": 0.7909,
+          "macro_ndcg_at_k": 0.9536,
+          "critical_mismatches_in_top_k": 10,
+          "queries_without_positive_gold": 0,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        }
+      },
+      "holdout": {
+        "at_5": {
+          "k": 5,
+          "queries": [
+            {
+              "need_id": "b-office",
+              "returned": 1,
+              "precision_at_k": 0.2,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b13"
+              ]
+            },
+            {
+              "need_id": "b-full",
+              "returned": 5,
+              "precision_at_k": 0.6,
+              "precision_of_returned": 0.6,
+              "ndcg_at_k": 0.7877020569606369,
+              "critical_mismatches_in_top_k": 2,
+              "profile_ids": [
+                "b02",
+                "b01",
+                "b03",
+                "b05",
+                "b06"
+              ]
+            },
+            {
+              "need_id": "f-office",
+              "returned": 1,
+              "precision_at_k": 0.2,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "f06"
+              ]
+            },
+            {
+              "need_id": "f-unmeasured",
+              "returned": 5,
+              "precision_at_k": 0.0,
+              "precision_of_returned": 0.0,
+              "ndcg_at_k": null,
+              "critical_mismatches_in_top_k": 5,
+              "profile_ids": [
+                "f02",
+                "f01",
+                "f03",
+                "f05",
+                "f08"
+              ]
+            },
+            {
+              "need_id": "d-office",
+              "returned": 1,
+              "precision_at_k": 0.2,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d06"
+              ]
+            },
+            {
+              "need_id": "d-full",
+              "returned": 5,
+              "precision_at_k": 0.4,
+              "precision_of_returned": 0.4,
+              "ndcg_at_k": 0.7653606369886218,
+              "critical_mismatches_in_top_k": 3,
+              "profile_ids": [
+                "d02",
+                "d01",
+                "d03",
+                "d05",
+                "d08"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 0.2667,
+          "macro_precision_of_returned": 0.6667,
+          "macro_ndcg_at_k": 0.9106,
+          "critical_mismatches_in_top_k": 10,
+          "queries_without_positive_gold": 1,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        },
+        "at_10": {
+          "k": 10,
+          "queries": [
+            {
+              "need_id": "b-office",
+              "returned": 1,
+              "precision_at_k": 0.1,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "b13"
+              ]
+            },
+            {
+              "need_id": "b-full",
+              "returned": 8,
+              "precision_at_k": 0.4,
+              "precision_of_returned": 0.5,
+              "ndcg_at_k": 0.9108532513310018,
+              "critical_mismatches_in_top_k": 4,
+              "profile_ids": [
+                "b02",
+                "b01",
+                "b03",
+                "b05",
+                "b06",
+                "b09",
+                "b10",
+                "b14"
+              ]
+            },
+            {
+              "need_id": "f-office",
+              "returned": 1,
+              "precision_at_k": 0.1,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "f06"
+              ]
+            },
+            {
+              "need_id": "f-unmeasured",
+              "returned": 7,
+              "precision_at_k": 0.0,
+              "precision_of_returned": 0.0,
+              "ndcg_at_k": null,
+              "critical_mismatches_in_top_k": 7,
+              "profile_ids": [
+                "f02",
+                "f01",
+                "f03",
+                "f05",
+                "f08",
+                "f09",
+                "f13"
+              ]
+            },
+            {
+              "need_id": "d-office",
+              "returned": 1,
+              "precision_at_k": 0.1,
+              "precision_of_returned": 1.0,
+              "ndcg_at_k": 1.0,
+              "critical_mismatches_in_top_k": 0,
+              "profile_ids": [
+                "d06"
+              ]
+            },
+            {
+              "need_id": "d-full",
+              "returned": 7,
+              "precision_at_k": 0.3,
+              "precision_of_returned": 0.42857142857142855,
+              "ndcg_at_k": 0.9217868789962073,
+              "critical_mismatches_in_top_k": 4,
+              "profile_ids": [
+                "d02",
+                "d01",
+                "d03",
+                "d05",
+                "d08",
+                "d09",
+                "d13"
+              ]
+            }
+          ],
+          "macro_precision_at_k": 0.1667,
+          "macro_precision_of_returned": 0.6548,
+          "macro_ndcg_at_k": 0.9665,
+          "critical_mismatches_in_top_k": 15,
+          "queries_without_positive_gold": 1,
+          "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Авторская синтетическая разметка, не проверенная независимыми людьми.",
+    "Веса scorer не подбирались по этому holdout; диапазон примеров узкий.",
+    "Benchmark не доказывает качество найма или психометрическую равноценность тестов."
+  ]
+}

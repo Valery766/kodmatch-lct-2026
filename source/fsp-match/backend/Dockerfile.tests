@@ -1,0 +1,10 @@
+# Build only from the exact image currently running for this FSP release.
+ARG FSP_API_IMAGE
+FROM ${FSP_API_IMAGE}
+USER root
+COPY requirements-tests.lock /tmp/requirements-tests.lock
+RUN pip install --no-cache-dir --disable-pip-version-check --no-deps --index-url https://pypi.org/simple -r /tmp/requirements-tests.lock
+COPY tests /app/tests
+COPY tools/run_pg_checks.py /app/tools/run_pg_checks.py
+USER 10001:10001
+CMD ["python", "/app/tools/run_pg_checks.py"]
