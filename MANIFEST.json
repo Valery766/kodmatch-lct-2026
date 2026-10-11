@@ -1,7 +1,7 @@
 {
   "project": "КОД.МЭТЧ",
   "team": "unecon.tech",
-  "prepared_at_utc": "2026-10-11T19:19:52.016137+00:00",
+  "prepared_at_utc": "2026-10-11T20:12:18.755275+00:00",
   "revision": "Финальная редакция для жюри · 11.10.2026",
   "runtime_release": "0.1.0-20261011T104017Z",
   "repository_url": "https://github.com/Valery766/kodmatch-lct-2026",
@@ -9,13 +9,13 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 5895,
-      "sha256": "527854cbfe6d92b7605d0f376ee3e9d03f7ff7249de4b788a3c6f41012fcac87"
+      "bytes": 5979,
+      "sha256": "5b5b36137057d3f94875ea988108179fd706c93f530087357e01c725665f2db1"
     },
     {
       "path": "documents/README_ДЛЯ_ЖЮРИ.md",
-      "bytes": 3448,
-      "sha256": "9c547824ac0472e42368fa612d82c5fa096ad2517ccc6d1f7a4435e2bfc97d65"
+      "bytes": 3531,
+      "sha256": "30a762cd2a89aa7f290bfb7872010d7a1ad212c2dcb8922d77729e8d59a64715"
     },
     {
       "path": "documents/assets/architecture.png",
@@ -39,43 +39,28 @@
     },
     {
       "path": "documents/documents-artifact-manifest.json",
-      "bytes": 2576,
-      "sha256": "028f71745d2e4f51877283761b64b0deedf8addbc270d837b42cd421f337614c"
+      "bytes": 1936,
+      "sha256": "c1d08cffb6b4391f23657835dbd22f8d6be1b82238c883943bbf928633deb019"
     },
     {
-      "path": "documents/КОД.МЭТЧ_Инструкция_для_жюри.docx",
-      "bytes": 42826,
-      "sha256": "ed71a235acbd0bead9ae4eb5496688d00ea623431c37dd27b9719ef446076ecf"
+      "path": "documents/КОД.МЭТЧ_Документация_и_инструкция.docx",
+      "bytes": 295130,
+      "sha256": "d0d0763f7452ce8bfeacd5cd9c71b2c83bb6b103abd55bd911bd6a93c466a6a5"
     },
     {
-      "path": "documents/КОД.МЭТЧ_Инструкция_для_жюри.md",
-      "bytes": 10135,
-      "sha256": "6c56510d5bf50ee26471f40de1761940ca3de5c54bc9561e69e19c5da7fc079d"
+      "path": "documents/КОД.МЭТЧ_Документация_и_инструкция.md",
+      "bytes": 68935,
+      "sha256": "e5ad7166b3aa3a6f6a4cdb69a6c02364be373e6e6e767ade330425ec88da4af9"
     },
     {
-      "path": "documents/КОД.МЭТЧ_Инструкция_для_жюри.pdf",
-      "bytes": 119153,
-      "sha256": "e56507eabc2c8acc58f0f15c055df5d1da98fd913942331167e8e715b486a6dd"
-    },
-    {
-      "path": "documents/КОД.МЭТЧ_Техническая_документация.docx",
-      "bytes": 291408,
-      "sha256": "472e1e50d7ec4b0355346914d20c5ae4b8b57eed7324f80d229ee38bcbef9285"
-    },
-    {
-      "path": "documents/КОД.МЭТЧ_Техническая_документация.md",
-      "bytes": 58801,
-      "sha256": "c18332f9f82a3ae6d5121e4ea6ed99f554ad12150cd0e8b51c54d4721ac37c5f"
-    },
-    {
-      "path": "documents/КОД.МЭТЧ_Техническая_документация.pdf",
-      "bytes": 722757,
-      "sha256": "07f94b422296e54231da55c3b2b8eb1b971003282cbf15079a28e78ee6cc34a5"
+      "path": "documents/КОД.МЭТЧ_Документация_и_инструкция.pdf",
+      "bytes": 760908,
+      "sha256": "b52499f82223a37f9c435f246ded2721ad6f99a1484a726ecf3983a442f2b91b"
     },
     {
       "path": "documents/СОСТАВ_КОМПЛЕКТА.md",
-      "bytes": 1733,
-      "sha256": "146209e768fcf73e4904df3fee6258f06bf7ed7083b04b6d5109d56c3c932e9a"
+      "bytes": 1664,
+      "sha256": "4a9269e6154330fb411ec4c0207120f7d096ac197902c44ff1b218628cdedf14"
     },
     {
       "path": "evidence/README.md",
@@ -99,18 +84,18 @@
     },
     {
       "path": "evidence/РЕЗУЛЬТАТЫ_ПРОВЕРКИ.md",
-      "bytes": 4538,
-      "sha256": "753181a6cca26bf4ec11266cf2e6c531ac0e6fc299e412d1cc1ffaee8fe6265f"
+      "bytes": 4555,
+      "sha256": "e3ec44976aa3e400ee8d2d3663dc0857d9af28276f94b03d8aa8351a195b8813"
     },
     {
       "path": "presentation/PRESENTATION_MANIFEST.json",
       "bytes": 1940,
-      "sha256": "a16d2cffdf52c18696cdde5a6616187fae9e5a096fa1c058339341bf70d8bfc6"
+      "sha256": "d7cda656c6624c9e7fc9bb4e979c152fdf14c635f2c871fc4b274c2b334f6a8d"
     },
     {
       "path": "presentation/README.md",
-      "bytes": 3823,
-      "sha256": "e67cdf91aec92b4623a0cf75aefc69ed69b65630ddc4b32ab5ccca2b141ad5a8"
+      "bytes": 4283,
+      "sha256": "b4c056a9cdfc4ce1a3bfef5be3693d0012d375f0cf53f25831f189a2cbeb731d"
     },
     {
       "path": "presentation/fonts/Montserrat-Bold.ttf",
@@ -154,13 +139,13 @@
     },
     {
       "path": "source/README.md",
-      "bytes": 3983,
-      "sha256": "0a98b99c197b4b409d3a0bb1fae95f20508d2f855ec9eb7a8b8c129e5d8d58f7"
+      "bytes": 3903,
+      "sha256": "c33017c68e0cb6459fe37ad8a1939f1dc7056476102506ddc747c1a2a6ee3618"
     },
     {
       "path": "source/SHA256SUMS.txt",
       "bytes": 12739,
-      "sha256": "c11b49686e5ac97326c480a0bb19e8cff6c4bd16624c24446e33761904f502c0"
+      "sha256": "c93757dc733540b3a2c387c71dfbb68d0f2a5e543e737dd31a4c70acfd349cd5"
     },
     {
       "path": "source/fsp-match/.gitignore",
@@ -169,8 +154,8 @@
     },
     {
       "path": "source/fsp-match/README.md",
-      "bytes": 8403,
-      "sha256": "7431f3637d90148d1db2291598f5d2656f332b34261b4851463604ed62a3670c"
+      "bytes": 8320,
+      "sha256": "18b2b8b8cb395238612b333803bbd2ae6936593ece4d5dbc8f144cbb29a3d65d"
     },
     {
       "path": "source/fsp-match/backend/.dockerignore",
@@ -745,7 +730,7 @@
     {
       "path": "source/source-manifest.json",
       "bytes": 20883,
-      "sha256": "11b3d6e77f9279ac0a6d6967b5b9b3b22f35224140e8521185ea0d8c67d60b59"
+      "sha256": "05361214b6805d1f84b81581ad4a1860e82e3121996c38252062f9429d6ac521"
     }
   ]
 }

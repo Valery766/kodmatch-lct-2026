@@ -10,7 +10,7 @@
 - [Серверная часть](fsp-match/backend/README.md) и [описание API](fsp-match/backend/API_CONTRACT.md).
 - [Клиентская часть](fsp-match/frontend/README.md).
 - [Методика проверки тестирования и подбора](research/jury-validation-20261007/VALIDATION_FOR_JURY.md).
-- [Техническая документация](../documents/КОД.МЭТЧ_Техническая_документация.pdf) и [инструкция для жюри](../documents/КОД.МЭТЧ_Инструкция_для_жюри.pdf).
+- [Единая документация с инструкцией для жюри](../documents/КОД.МЭТЧ_Документация_и_инструкция.pdf).
 - [Результаты проверок](../evidence/) и [манифест исходного кода](source-manifest.json).
 
 ## Состав и запуск
