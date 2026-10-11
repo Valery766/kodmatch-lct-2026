@@ -1,7 +1,7 @@
 {
   "project": "КОД.МЭТЧ",
   "team": "unecon.tech",
-  "prepared_at_utc": "2026-10-11T20:12:18.755275+00:00",
+  "prepared_at_utc": "2026-10-11T20:18:16.769835+00:00",
   "revision": "Финальная редакция для жюри · 11.10.2026",
   "runtime_release": "0.1.0-20261011T104017Z",
   "repository_url": "https://github.com/Valery766/kodmatch-lct-2026",
@@ -40,12 +40,12 @@
     {
       "path": "documents/documents-artifact-manifest.json",
       "bytes": 1936,
-      "sha256": "c1d08cffb6b4391f23657835dbd22f8d6be1b82238c883943bbf928633deb019"
+      "sha256": "69f5ec462beb1139601cc4b902d12e9b9f84104c8203ae1be6a313210efafa03"
     },
     {
       "path": "documents/КОД.МЭТЧ_Документация_и_инструкция.docx",
-      "bytes": 295130,
-      "sha256": "d0d0763f7452ce8bfeacd5cd9c71b2c83bb6b103abd55bd911bd6a93c466a6a5"
+      "bytes": 295134,
+      "sha256": "88d7933b4a973b4a304158e0a562cbe438279a5adc0f2981e4822b0f149f1215"
     },
     {
       "path": "documents/КОД.МЭТЧ_Документация_и_инструкция.md",
@@ -54,8 +54,8 @@
     },
     {
       "path": "documents/КОД.МЭТЧ_Документация_и_инструкция.pdf",
-      "bytes": 760908,
-      "sha256": "b52499f82223a37f9c435f246ded2721ad6f99a1484a726ecf3983a442f2b91b"
+      "bytes": 772448,
+      "sha256": "2881e40d788b1d0e11e5e0bd77c134a7ad7045c7753f73c05112078286bebe81"
     },
     {
       "path": "documents/СОСТАВ_КОМПЛЕКТА.md",
