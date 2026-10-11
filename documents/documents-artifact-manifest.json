@@ -1,19 +1,20 @@
 {
   "project": "КОД.МЭТЧ",
   "author": "unecon.tech",
-  "created_at_utc": "2026-10-11T11:36:48.098127+00:00",
+  "created_at_utc": "2026-10-11T15:17:20.460281+00:00",
   "edition": "2026-10-11",
   "release": "0.1.0-20261011T104017Z",
   "status": "PASS_DOCUMENTS_SCOPED",
   "pages": {
-    "technical": 18,
+    "technical": 22,
     "jury_guide": 3
   },
+  "build": "Markdown -> DOCX (python-docx) -> PDF (LibreOffice headless); сборочный скрипт команды хранится вне комплекта",
   "files": [
     {
       "path": "documents/README_ДЛЯ_ЖЮРИ.md",
-      "bytes": 3624,
-      "sha256": "47a59d08a91f1a08d93d3255e647b808aa78cdf87bcf3b71b2415eb81298243e"
+      "bytes": 4963,
+      "sha256": "4762eefba0c44ffdd78afe2cfa60071ae1e9cc3b3b50683c51f5aae4170b952f"
     },
     {
       "path": "documents/assets/architecture.png",
@@ -26,59 +27,70 @@
       "sha256": "37a710f1e121ab093a0039e3e93bd3ff5fed23121206994bea1b76d1401270b7"
     },
     {
+      "path": "documents/assets/fsp-integration.png",
+      "bytes": 196672,
+      "sha256": "74401d633a7e2a4248d95b65300d7a63a4ef7621b968b70faf251ca6a2efd95b"
+    },
+    {
       "path": "documents/assets/max-mini-app-final.png",
       "bytes": 31113,
       "sha256": "7c1f89b31a5787911e857cb831302581e155ca5134a8eb5e658c60c770b20eea"
     },
     {
       "path": "documents/КОД.МЭТЧ_Инструкция_для_жюри.docx",
-      "bytes": 45473,
-      "sha256": "84fd648aeed32e59607f5051fa3e865f2869e04665d0103d4ac6c521d3275bbd"
+      "bytes": 45583,
+      "sha256": "46b9cee290714909403021c17c29c030be919a7df77aa6910ff6e9f198a550da"
     },
     {
       "path": "documents/КОД.МЭТЧ_Инструкция_для_жюри.md",
-      "bytes": 17482,
-      "sha256": "71e3590ca246dd34bda2c3e508e0fdcff1a07580e3bd4388d0cddb193cdfa6ce"
+      "bytes": 17413,
+      "sha256": "0e957ff765eee6b1f8af58f009db8db58c54d021fed30c3657a9b86917612a58"
     },
     {
       "path": "documents/КОД.МЭТЧ_Инструкция_для_жюри.pdf",
-      "bytes": 129263,
-      "sha256": "f44b265bcebebea2f028659e6288134d37811def23a52b37f8d64ca3f3a8c150"
+      "bytes": 128987,
+      "sha256": "6657554b48d02dd508bfbfa946ffce58d8425b5501dc78cbd6399910e6a3361d"
     },
     {
       "path": "documents/КОД.МЭТЧ_Техническая_документация.docx",
-      "bytes": 274670,
-      "sha256": "a2c147da48f92a6c795e38f0250b504a24f82ecc66ed1a287991e9cd006dc78e"
+      "bytes": 463389,
+      "sha256": "a092ed1ca3c41ace1e4fe72bd3b0c4eec66fd1570ec81f3744cca166ca836012"
     },
     {
       "path": "documents/КОД.МЭТЧ_Техническая_документация.md",
-      "bytes": 93916,
-      "sha256": "70674189b6c003612c85ee986c04ab200c2d5553fbba0f290bb416fb30477d43"
+      "bytes": 112894,
+      "sha256": "ed8e35c15b373ca5920abcdb700826046702e975ffdb1fd090e70278d08a3f22"
     },
     {
       "path": "documents/КОД.МЭТЧ_Техническая_документация.pdf",
-      "bytes": 647085,
-      "sha256": "61d7cb731d736f6a92d17f7939824d2c80a1effa7dc3eddea5ebde59032b54b6"
+      "bytes": 928082,
+      "sha256": "01e3d96db7862d42490d8cd7216f01731967760c00852515187e3194efe7434b"
     },
     {
       "path": "documents/СОСТАВ_КОМПЛЕКТА.md",
-      "bytes": 1607,
-      "sha256": "7fc3c871d1b4de7b81fccc98ffb11249f1c06c82295bf66e47cebd5003210160"
+      "bytes": 1799,
+      "sha256": "44156707c059b258e233e63a0d929d0ae914bb0dd686add8a472c5b006fa6777"
     }
   ],
   "verification": {
     "DOCX_full_body_in_PDF": true,
-    "all_PDF_pages_visually_reviewed": true,
-    "table_geometry_and_links": true,
+    "A4_no_blank_pages": true,
+    "hyperlinks_clickable_in_PDF": true,
     "current_brand_and_en_dash": true,
     "MAX_only_public_guide": true,
     "public_author_unecon_tech": true,
-    "permitted_contact_emails_only": true
+    "permitted_contact_emails_only": true,
+    "all_PDF_pages_visually_reviewed": true
   },
   "limits": [
     "Document review is not another independent execution of the live product scenarios.",
     "Historical acceptance dates are retained; separate 11 October live receipts are cited.",
     "Physical clients, new external inbox receipt and independent human/HR calibration are scoped separately.",
     "Operational handoff and credentials are excluded from the jury package."
-  ]
+  ],
+  "final_file_review": {
+    "tested_at_utc": "2026-10-11T16:10:36.257429+00:00",
+    "evidence": "evidence/FINAL_DOCUMENT_REVIEW_20261011.json",
+    "scope": "Проверка файлов документов, без повторного прохождения бизнес-сценариев"
+  }
 }

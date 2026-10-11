@@ -1,0 +1,132 @@
+{
+ "A02_A03_local": {
+  "register": 201,
+  "login_before_confirm": 403,
+  "resend": 200,
+  "confirm_tokens_issued": 2,
+  "confirm_with_replaced_first_link": 400,
+  "confirm_second": 200,
+  "confirm_replay": 400,
+  "login_after_confirm": 200,
+  "forgot_unknown_vs_known_same_status": [
+   200,
+   200
+  ],
+  "forgot_bodies_equal": true,
+  "reset": 200,
+  "reset_replay": 400,
+  "old_session_after_reset": 401,
+  "login_old_password": 401,
+  "login_new_password": 200
+ },
+ "T03_local": {
+  "attempt_found": true,
+  "repeat_start_same_level": [
+   409,
+   "{\"detail\":{\"message\":\"Повтор этой категории доступен после периода ожидания. Можно добровольно выбрать другой уровень.\",\"cooldown_until\":1799506401.875861}}"
+  ],
+  "repeat_submit_finished": [
+   200,
+   "{\"id\":\"22bc995c-703b-4498-a7c6-41553122f343\",\"specialization\":\"data_sql\",\"grade\":\"junior\",\"status\":\"passed\",\"started_at\""
+  ],
+  "foreign_get": 404,
+  "foreign_submit": 404,
+  "employer_start_attempt": 403,
+  "verification_keys": "data_sql/junior"
+ },
+ "V01_local": {
+  "draft_in_list": false,
+  "draft_direct_get": 404,
+  "respond_to_draft": 404,
+  "publish": 200,
+  "published_in_list": true,
+  "respond_first": 201,
+  "respond_repeat": 201,
+  "same_response_id": true,
+  "employer_sees_response": true,
+  "contact_access_after_response": true,
+  "close": 200,
+  "closed_in_list": false,
+  "respond_after_close": 404,
+  "anonymous_edit": 401
+ },
+ "M01_local": {
+  "audience_bank_total_backend_python": 0,
+  "create": 201,
+  "listed_for_candidate": true,
+  "expected_answer_hidden_in_listing": true,
+  "wrong_score": 0,
+  "right_score_normalized": 100,
+  "changes_verified_grade_flag": false,
+  "history_rows": 2,
+  "verification_unchanged": true,
+  "employer_sees_attempts": 2,
+  "past_due_rejected": 422
+ },
+ "N01_local": {
+  "notifications": 1,
+  "kinds": [
+   "invitation"
+  ],
+  "mark_read": 200,
+  "read_persisted": true,
+  "employer_marks_candidate_notification": 404,
+  "feedback_own_object": 201,
+  "feedback_unknown_object": 201
+ },
+ "C02_local": {
+  "import_preview": 200,
+  "parser": "local_fallback",
+  "provenance": "pdf_import",
+  "preview_keys": [
+   "fields",
+   "parser",
+   "provenance",
+   "requires_confirmation",
+   "warnings"
+  ],
+  "profile_unchanged_before_confirm": true,
+  "not_pdf": [
+   415,
+   "{\"detail\":\"Нужен PDF документ\"}"
+  ],
+  "over_5mib": [
+   413,
+   "{\"detail\":\"PDF должен быть меньше 5 МБ\"}"
+  ],
+  "31_pages": [
+   422,
+   "{\"detail\":\"PDF повреждён, защищён паролем или не поддерживается\"}"
+  ],
+  "no_text": [
+   422,
+   "{\"detail\":\"PDF повреждён, защищён паролем или не поддерживается\"}"
+  ],
+  "employer_import": 403
+ },
+ "L_local_fallback": {
+  "parse": 200,
+  "parse_source": "local_fallback",
+  "parse_fields": [
+   "fields",
+   "parser",
+   "requires_confirmation",
+   "warnings"
+  ],
+  "parse_seconds": 0.005,
+  "need_saved_by_parse": false,
+  "explanation": 422,
+  "explanation_source": null,
+  "explanation_keys": [
+   "_"
+  ],
+  "explanation_seconds": 0.006,
+  "rank_unchanged": true
+ },
+ "F01_local": {
+  "get": 200,
+  "body": "{\"status\":\"synthetic_demo\",\"source\":\"КОД.МЭТЧ: синтетический пример, API ФСП не подключён\",\"verified\":false,\"achievements\":[{\"id\":\"demo-backend_python\",\"title\":\"Учебное соревнование «Практика разработки»\",\"specialization\":\"backend_python\",\"level\":\"finalist\",\"year\":2026,\"synthetic\":true,\"verified\":tr",
+  "sync": 200,
+  "sync_body": "{\"status\":\"synthetic_demo\",\"source\":\"КОД.МЭТЧ: синтетический пример, API ФСП не подключён\",\"verified\":false,\"achievements\":[{\"id\":\"demo-data_sql\",\"title\":\"Учебное соревнование «Практика разработки»\",\"specialization\":\"data_sql\",\"level\":\"finalist\",\"year\":2026,\"synthetic\":true,\"verified\":true,\"source\":"
+ }
+}

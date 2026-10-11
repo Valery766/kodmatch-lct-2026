@@ -1,0 +1,47 @@
+# id: OFFLINE-VALIDATION
+# cwd: <SCRATCH>/tests/src
+# command: PYTHONDONTWRITEBYTECODE=1 VENV/bin/python research/jury-validation-20261007/run_validation.py   (from SCR/tests/src)
+# started_utc: 2026-10-11T14:43:43.694784+00:00
+
+{
+  "status": "TECHNICAL_SYNTHETIC_EVIDENCE_NOT_INDEPENDENT_HUMAN_VALIDATION",
+  "counts": {
+    "categories": 6,
+    "forms": 120,
+    "unique_primary_profile_evaluations": 360,
+    "all_controlled_policy_evaluations": 720,
+    "repeat_grading_evaluations": 720,
+    "paired_primary_alternate_form_comparisons": 180,
+    "literal_copied_answer_trials": 114,
+    "independent_python_sql_fixture_checks": 120,
+    "failed_checks": 0,
+    "checks": 78
+  },
+  "elapsed_seconds": 0.364,
+  "copy_passes": 0,
+  "copy_means": {
+    "backend_python/junior": 28.0726,
+    "backend_python/middle": 18.2484,
+    "frontend_ts/junior": 24.9147,
+    "frontend_ts/middle": 24.5642,
+    "data_sql/junior": 26.67,
+    "data_sql/middle": 40.0021
+  },
+  "holdout_evidence": {
+    "k": 5,
+    "macro_precision_at_k": 0.3333,
+    "macro_precision_of_returned": 1.0,
+    "macro_ndcg_at_k": 1.0,
+    "critical_mismatches_in_top_k": 0,
+    "queries_without_positive_gold": 1,
+    "definition": "Precision denominator fixed k; missing results count as zero. nDCG excludes no-positive-gold queries."
+  },
+  "source_hashes": {
+    "assessment": "a61eda2b103e4bf8461250c20a5a7b3bc8bd1c6a53f6762651295ed62567d4d5",
+    "matching": "194e1dcb4f0a85806ebf07c3a4ca1bf50d340773f7811d3209f946b4c8957157",
+    "validation": "d69e36a1785ed490f18059c7b0ce3bfe969eb059bf2fd28d6278bf3618900518"
+  }
+}
+
+# finished_utc: 2026-10-11T14:43:44.201822+00:00
+# exit_code: 0

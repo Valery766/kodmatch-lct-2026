@@ -1,6 +1,7 @@
 {
-  "status": "READY_PRESENTATION_ARTIFACTS",
-  "created_at_utc": "2026-10-11T11:47:14.276760+00:00",
+  "status": "READY_PRESENTATION_ARTIFACTS_R2",
+  "created_at_utc": "2026-10-11T15:09:10.743373+00:00",
+  "supersedes_created_at_utc": "2026-10-11T11:47:14.276760+00:00",
   "product": "КОД.МЭТЧ",
   "author": "unecon.tech",
   "runtime_reference": "0.1.0-20261011T104017Z",
@@ -10,8 +11,8 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 4692,
-      "sha256": "47a30ac709a842a847a716b1b9ebaaa12364ce5061463649092ec8955655ef84"
+      "bytes": 5034,
+      "sha256": "0e59399deaffce16ed9e84d9a601f977acb88e7cc6562d8aeebb7e5039368048"
     },
     {
       "path": "fonts/Montserrat-Bold.ttf",
@@ -30,39 +31,36 @@
     },
     {
       "path": "КОД.МЭТЧ_unecon.tech_ЛЦТ_ФСП_2026.pdf",
-      "bytes": 1906838,
-      "sha256": "59e466a94c21451bc79f598f6e1d718ff475c9da8bf540efec345d4d24e35da8"
+      "bytes": 3241276,
+      "sha256": "c045d66009d7224834070ed11a63e43651b7c1eabff62b0c8dcee6a86ca37550"
     },
     {
       "path": "КОД.МЭТЧ_unecon.tech_ЛЦТ_ФСП_2026.pptx",
-      "bytes": 13916467,
-      "sha256": "417a0a75aa742cff3b95d581db9f439060eb43a96ca6297caae0104a9b8c18ba"
+      "bytes": 13905261,
+      "sha256": "52e629c64d5123e6b7cfad0742298804ea69a85d3fcb3514f084b09f43bdf228"
     },
     {
       "path": "Текст_выступления_10_минут.docx",
-      "bytes": 43288,
-      "sha256": "ce6edf5a5a943fa8f3f9f399d9afac1091d9fb2039888d317edd5ed1d9a9ff70"
+      "bytes": 43395,
+      "sha256": "ee27792eb98732e50ec7c067e2ee7119eac944ba89209eca6bfd8ee62c717c2b"
     },
     {
       "path": "Текст_выступления_10_минут.md",
-      "bytes": 17218,
-      "sha256": "323a8d21c9f0368b593c81c74dd3732a5dcddacaba8f50b59c1dd7a7ab5af88d"
+      "bytes": 17612,
+      "sha256": "f4114e2c70a80ae98f8bd9626c27c362ebfcd8503758c56c2b8b2a98ccb6c1b4"
     },
     {
       "path": "Текст_выступления_10_минут.pdf",
-      "bytes": 63090,
-      "sha256": "0ed40645853529d4dc42668d5af3a54542dd671008d5b31e28fc783def3b7b75"
+      "bytes": 51113,
+      "sha256": "1710fa6d2ce34fdab1dd4396019ab685d9fc041a5c32981277598168e46d18f8"
     }
   ],
-  "evidence": {
-    "automated_checks": 28,
-    "automated_audit_sha256": "4ab8c2ed252fc14ec50322049832f0a193d2ec0e512322aae469be212449c93b",
-    "visual_review_sha256": "cf482e9a62c69f445795003ce2d0523884dc390b01066996705bf0aa5e74b441",
-    "source_mapping_sha256": "75380a71f674ea0f0ddebf1b82777528b34af337b4e2e4dee4adf8a1646c7120"
+  "review": {
+    "report": "evidence/independent-20261011/ (сводный отчёт независимой проверки)",
+    "note": "Визуальный проход: на слайдах 6–16 единый стиль карточек (тонкая рамка, мягкая тень, радиус 12 pt, без боковых полос), финальный слайд со ссылками переработан; на обязательных слайдах 1–5 изменён только текст полей (без жаргона и висячих слов) и размер собственного слогана/имён. PDF экспортирован из PowerPoint для Mac; заметки совпадают с текстом выступления."
   },
   "limitations": [
-    "Native PowerPoint on another device and physical projector not tested; checked PDF is reference.",
-    "600 seconds is planned timing, no human rehearsal claim.",
-    "Private GitHub publication remains owner controlled."
+    "PowerPoint for Mac export checked 11.10.2026 (matches the PDF, no overlaps); PowerPoint for Windows and a physical projector not tested.",
+    "600 seconds is planned timing from word count (~119 words/min), no human rehearsal claim."
   ]
 }

@@ -1,0 +1,12 @@
+# id: FE-TYPECHECK
+# cwd: <SCRATCH>/tests/frontend
+# command: npm run typecheck   (tsc --noEmit)
+# started_utc: 2026-10-11T14:48:41.942679+00:00
+
+
+> codematch-web@0.1.0 typecheck
+> tsc --noEmit
+
+
+# finished_utc: 2026-10-11T14:48:44.983492+00:00
+# exit_code: 0

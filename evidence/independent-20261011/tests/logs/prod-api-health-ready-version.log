@@ -1,0 +1,75 @@
+# id: PROD-API-HEALTH
+# cwd: <SCRATCH>/tests
+# command: GET https://fsp.digital-projects.tech/api/health, /api/ready, /api/version, /privacy, /mini/max, / ; compare with delivery-20261011/evidence/runtime-final.json
+# started_utc: 2026-10-11T14:43:19.831790+00:00
+
+{
+ "checked_utc": "2026-10-11T14:43:19.888467+00:00",
+ "endpoints": {
+  "/api/health": {
+   "status": 200,
+   "content_type": "application/json",
+   "csp": true,
+   "hsts": true,
+   "json": {
+    "status": "ok",
+    "service": "fsp-match"
+   },
+   "matches_prior_status": true,
+   "matches_prior_content_type": true
+  },
+  "/api/ready": {
+   "status": 200,
+   "content_type": "application/json",
+   "csp": true,
+   "hsts": true,
+   "json": {
+    "status": "ready",
+    "database": "ok"
+   },
+   "matches_prior_status": true,
+   "matches_prior_content_type": true
+  },
+  "/api/version": {
+   "status": 200,
+   "content_type": "application/json",
+   "csp": true,
+   "hsts": true,
+   "json": {
+    "version": "0.1.0-20261011T104017Z",
+    "assessment_version": "assessment-1.0.0",
+    "matching_version": "matching-v1"
+   },
+   "matches_prior_status": true,
+   "matches_prior_content_type": true
+  },
+  "/privacy": {
+   "status": 200,
+   "content_type": "text/html",
+   "csp": true,
+   "hsts": true,
+   "matches_prior_status": true,
+   "matches_prior_content_type": true
+  },
+  "/mini/max": {
+   "status": 200,
+   "content_type": "text/html",
+   "csp": true,
+   "hsts": true,
+   "matches_prior_status": true,
+   "matches_prior_content_type": true
+  },
+  "/": {
+   "status": 200,
+   "content_type": "text/html",
+   "csp": true,
+   "hsts": true,
+   "matches_prior_status": true
+  }
+ },
+ "version_matches_prior": true,
+ "release": "0.1.0-20261011T104017Z"
+}
+
+# finished_utc: 2026-10-11T14:43:20.720778+00:00
+# exit_code: 0

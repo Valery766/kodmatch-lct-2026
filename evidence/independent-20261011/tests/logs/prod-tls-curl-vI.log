@@ -1,0 +1,79 @@
+# id: PROD-TLS
+# cwd: <SCRATCH>/tests
+# command: curl -vI https://fsp.digital-projects.tech/
+# started_utc: 2026-10-11T14:43:04.364379+00:00
+
+* Host fsp.digital-projects.tech:443 was resolved.
+* IPv6: (none)
+* IPv4: <server-ip>
+*   Trying <server-ip>:443...
+* Connected to fsp.digital-projects.tech (<server-ip>) port 443
+* ALPN: curl offers h2,http/1.1
+* (304) (OUT), TLS handshake, Client hello (1):
+} [330 bytes data]
+*  CAfile: /etc/ssl/cert.pem
+*  CApath: none
+* (304) (IN), TLS handshake, Server hello (2):
+{ [122 bytes data]
+* (304) (IN), TLS handshake, Unknown (8):
+{ [47 bytes data]
+* (304) (IN), TLS handshake, Certificate (11):
+{ [3437 bytes data]
+* (304) (IN), TLS handshake, CERT verify (15):
+{ [80 bytes data]
+* (304) (IN), TLS handshake, Finished (20):
+{ [36 bytes data]
+* (304) (OUT), TLS handshake, Finished (20):
+} [36 bytes data]
+* SSL connection using TLSv1.3 / AEAD-CHACHA20-POLY1305-SHA256 / [blank] / UNDEF
+* ALPN: server accepted http/1.1
+* Server certificate:
+*  subject: CN=fsp.digital-projects.tech
+*  start date: Oct  6 10:04:17 2026 GMT
+*  expire date: Jan  4 10:04:16 2027 GMT
+*  subjectAltName: host "fsp.digital-projects.tech" matched cert's "fsp.digital-projects.tech"
+*  issuer: C=US; O=Let's Encrypt; CN=YE1
+*  SSL certificate verify ok.
+* using HTTP/1.x
+> HEAD / HTTP/1.1
+> Host: fsp.digital-projects.tech
+> User-Agent: curl/8.7.1
+> Accept: */*
+> 
+* Request completely sent off
+< HTTP/1.1 200 OK
+< Server: nginx/1.28.3 (Ubuntu)
+< Date: Sun, 11 Oct 2026 14:43:04 GMT
+< Content-Type: text/html
+< Content-Length: 829
+< Connection: keep-alive
+< Last-Modified: Sun, 11 Oct 2026 10:43:11 GMT
+< ETag: "6acb683f-33d"
+< Cache-Control: no-store
+< X-Content-Type-Options: nosniff
+< Referrer-Policy: no-referrer
+< Permissions-Policy: camera=(), microphone=(), geolocation=()
+< Content-Security-Policy: default-src 'self'; script-src 'self' https://telegram.org https://st.max.ru; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self' https://web.telegram.org https://max.ru https://web.max.ru
+< Accept-Ranges: bytes
+< Strict-Transport-Security: max-age=31536000
+< 
+* Connection #0 to host fsp.digital-projects.tech left intact
+HTTP/1.1 200 OK
+Server: nginx/1.28.3 (Ubuntu)
+Date: Sun, 11 Oct 2026 14:43:04 GMT
+Content-Type: text/html
+Content-Length: 829
+Connection: keep-alive
+Last-Modified: Sun, 11 Oct 2026 10:43:11 GMT
+ETag: "6acb683f-33d"
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Permissions-Policy: camera=(), microphone=(), geolocation=()
+Content-Security-Policy: default-src 'self'; script-src 'self' https://telegram.org https://st.max.ru; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self' https://web.telegram.org https://max.ru https://web.max.ru
+Accept-Ranges: bytes
+Strict-Transport-Security: max-age=31536000
+
+
+# finished_utc: 2026-10-11T14:43:04.495539+00:00
+# exit_code: 0

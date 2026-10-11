@@ -1254,10 +1254,11 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 4012,
-      "sha256": "270301cb23652d14de6f3a2b1bfa868785672c4120d93fd3ccf62145f5a23d33",
+      "bytes": 4069,
+      "sha256": "b5512f0c3c8a6879ad87a486d4744f3f5312bf05b06ef9def2ad708600cebd66",
       "baseline_source_review_sha256": "0074d9e3a67741da0c876c3b9188e58e000553a769cd024cf78a36784805b284",
-      "changed_from_source_review": true
+      "changed_from_source_review": true,
+      "r2_update": "11.10.2026 r2: две формулировки README приведены к актуальному порядку доступа; runtime-файлы не менялись"
     },
     {
       "path": "fsp-match/.gitignore",
@@ -2073,7 +2074,7 @@
     }
   ],
   "files_count_excluding_manifest_and_SHA256SUMS": 117,
-  "total_bytes_excluding_manifest_and_SHA256SUMS": 4249095,
+  "total_bytes_excluding_manifest_and_SHA256SUMS": 4249152,
   "self_hash_rule": "Manifest and SHA256SUMS excluded from files; SHA256SUMS includes manifest after creation.",
   "copy_updates": "README/API portability, MAX-only/current LLM/saved-survey docs, local compose.dev sender spelling. App.tsx resynced byte-for-byte from final published 20261011T104017Z for its captain-only support TeamFooter update; no independent business code changes.",
   "excluded": "Historical QA screenshots/PDF, giant documentation/provenance dossier, closed original TZ/correspondence, private runtime data and owner-specific SSH/deploy helpers.",

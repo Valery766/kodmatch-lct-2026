@@ -1,0 +1,15 @@
+# id: SRC-VS-RUNTIME-FINAL-SHA
+# cwd: <SCRATCH>/tests/src/fsp-match
+# command: SHA256 of 7 backend files in published source vs runtime-final.json container_sources (recorded 10:45Z from the running container)
+# started_utc: 2026-10-11T14:50:30.026014+00:00
+
+EQUAL backend/app/domain/assessment.py a61eda2b103e4bf8461250c20a5a7b3bc8bd1c6a53f6762651295ed62567d4d5
+EQUAL backend/app/domain/matching.py 194e1dcb4f0a85806ebf07c3a4ca1bf50d340773f7811d3209f946b4c8957157
+EQUAL backend/app/domain/validation.py d69e36a1785ed490f18059c7b0ce3bfe969eb059bf2fd28d6278bf3618900518
+EQUAL backend/app/candidates.py 5a806bb9b4b461b4d160cc1b16b99e8815e95151a8351cb07e814f3b904c4792
+EQUAL backend/app/worker.py 86a5fa85aa130dba3097bd34146e90b16fb7204960e3214e65a9f509ca267423
+EQUAL backend/app/integrations/messengers.py aaac2e1922a0229a448c7e8e787f5e66296fb72ff2a1ab67e9b83f0d0b23085d
+EQUAL backend/app/pdf.py 6329bc4baf2b8867bf08d4a0bb70e4e8742c104d953436d9f4b255088d39b95d
+
+# finished_utc: 2026-10-11T14:50:30.063745+00:00
+# exit_code: 0
